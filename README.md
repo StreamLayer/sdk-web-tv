@@ -5,7 +5,7 @@ Find the docs at [https://streamlayer.github.io/sdk-web](https://streamlayer.git
 ## How to start
 
 - install dependencies `pnpm i`
-- build sdk-web and copy to node_modules ex: `pnpm build && rm -rf ../sdk-web-tv/node_modules/.vite ../sdk-web-tv/node_modules/@streamlayer/react/lib && cp -r ./packages/react/lib ../sdk-web-tv/node_modules/@streamlayer/react/lib`
+- build sdk-web in sdk-web folder and copy to node_modules ex: `pnpm build && rm -rf ../sdk-web-tv/node_modules/.vite ../sdk-web-tv/node_modules/@streamlayer/react/lib && cp -r ./packages/react/lib ../sdk-web-tv/node_modules/@streamlayer/react/lib`
 
 - configure `.env` file
 - start the example `pnpm dev`
