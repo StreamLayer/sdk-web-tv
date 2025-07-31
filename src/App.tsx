@@ -1,11 +1,10 @@
 
-import { StreamLayerProvider } from '@streamlayer/react'
-import { StreamLayerSDKTv } from '@streamlayer/react'
+import { StreamLayerProvider, StreamLayerSDKTv } from '@streamlayer/web-os'
 
 import { anonymous } from '@streamlayer/sdk-web-anonymous-auth'
 import { cx } from '@emotion/css'
 
-import '@streamlayer/react/style.css'
+import '@streamlayer/web-os/style.css'
 import { EVENT_ID, SDK_KEY, PRODUCTION } from './config'
 
 const plugins = new Set([anonymous])
