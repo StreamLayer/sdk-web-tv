@@ -1,20 +1,16 @@
 
 import { StreamLayerProvider, StreamLayerSDKTv } from '@streamlayer/web-os'
 
-import { anonymous } from '@streamlayer/sdk-web-anonymous-auth'
 import { cx } from '@emotion/css'
 
 import '@streamlayer/web-os/style.css'
 import { EVENT_ID, SDK_KEY, PRODUCTION } from './config'
-
-const plugins = new Set([anonymous])
 
 function App() {
   return (
     <div className={cx('app-container')}>
       <StreamLayerProvider
         themeMode={'light'}
-        plugins={plugins as any}
         autoEnable
         withAd
         sdkKey={SDK_KEY}
