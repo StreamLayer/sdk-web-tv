@@ -10,7 +10,7 @@ function App() {
   return (
     <div className={cx('app-container')}>
       <StreamLayerProvider
-        themeMode={'light'}
+        themeMode={'dark'}
         autoEnable
         withAd
         sdkKey={SDK_KEY}
