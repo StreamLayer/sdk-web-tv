@@ -61537,54 +61537,54 @@ Please stay tuned for the next question.` : r7 === QuestionType.PREDICTION ? "St
   };
   const e7 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdOverlay", class: "pw9gih8", propsAsIs: false }), t$1$1 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdContent", class: "p8lpomy", propsAsIs: false }), o$1$1 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdGradientLeft", class: "pv7u167", propsAsIs: false }), n$e = /* @__PURE__ */ styled_default("div")({ name: "PauseAdGradientRight", class: "p1kh2yb0", propsAsIs: false }), p$1$1 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdGradientBottom", class: "pl8f94x", propsAsIs: false }), d$1$1 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdTopLeft", class: "p1m6zmrt", propsAsIs: false }), l$1$1 = /* @__PURE__ */ styled_default("h2")({ name: "PauseAdTitle", class: "pm3vwfa", propsAsIs: false }), A$3 = /* @__PURE__ */ styled_default("p")({ name: "PauseAdCaption", class: "p1tibuhw", propsAsIs: false }), r$1$1 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdBottomLeft", class: "ptqqrqd", propsAsIs: false }), i$1$1 = /* @__PURE__ */ styled_default("button")({ name: "PauseAdPlayButton", class: "p14estxv", propsAsIs: false }), u$2 = /* @__PURE__ */ styled_default("div")({ name: "PauseAdSidebar", class: "p1dpvfl1", propsAsIs: false }), c$1$1 = /* @__PURE__ */ styled_default("img")({ name: "ExternalAdContainer", class: "ezfmabr", propsAsIs: false });
   const q$1 = ({ vastUrl: t7 }) => {
-    var s2;
-    const [, d8] = _$2(), u8 = useStore(d8, { keys: [t7] });
-    return (s2 = u8 == null ? void 0 : u8[t7]) != null && s2.imageSrc ? u8[t7].adUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: u8[t7].adUrl, target: "_blank", rel: "noopener noreferrer", children: /* @__PURE__ */ jsxRuntimeExports.jsx(c$1$1, { src: u8[t7].imageSrc }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(c$1$1, { src: u8[t7].imageSrc }) : null;
-  }, z$6 = ({ isClosing: t7, title: d8, caption: u8, onPlay: s2, onClose: o7, vastUrl: a7, options: r7 }) => {
-    const { ref: f8, focusSelf: m8 } = distExports.useFocusable({ focusKey: "sl-pause-ad-play", onEnterRelease: s2, isFocusBoundary: true, forceFocus: true });
+    var d8;
+    const [, n7] = _$2(), u8 = useStore(n7, { keys: [t7] });
+    return (d8 = u8 == null ? void 0 : u8[t7]) != null && d8.imageSrc ? u8[t7].adUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: u8[t7].adUrl, target: "_blank", rel: "noopener noreferrer", children: /* @__PURE__ */ jsxRuntimeExports.jsx(c$1$1, { src: u8[t7].imageSrc }) }) : /* @__PURE__ */ jsxRuntimeExports.jsx(c$1$1, { src: u8[t7].imageSrc }) : null;
+  }, z$6 = ({ isClosing: t7, title: n$12, caption: u8, onPlay: d8, onClose: s2, vastUrl: a7, options: r7 }) => {
+    const { ref: o7, focusSelf: f8 } = distExports.useFocusable({ focusKey: "sl-pause-ad-play", onEnterRelease: d8, isFocusBoundary: true, forceFocus: true });
     return reactExports.useEffect(() => {
-      f8.current && m8();
-    }, [f8, m8]), reactExports.useEffect(() => {
-      const P4 = (l8) => {
-        const p10 = l8.keyCode;
-        if (p10 === 461 || p10 === 10009 || p10 === 27) {
-          l8.preventDefault(), l8.stopPropagation(), l8.stopImmediatePropagation(), o7 == null || o7();
+      o7.current && f8();
+    }, [o7, f8]), reactExports.useEffect(() => {
+      const A4 = (m8) => {
+        const l8 = m8.keyCode;
+        if (l8 === 461 || l8 === 10009 || l8 === 27) {
+          m8.preventDefault(), m8.stopPropagation(), m8.stopImmediatePropagation(), s2 == null || s2();
           return;
         }
       };
-      return window.addEventListener("keydown", P4, { capture: true }), () => window.removeEventListener("keydown", P4, { capture: true });
-    }, [o7]), /* @__PURE__ */ jsxRuntimeExports.jsx(e7, { className: cx_default(t7 && "pause-ad-closing"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(t$1$1, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(o$1$1, {}), /* @__PURE__ */ jsxRuntimeExports.jsx(n$e, {}), /* @__PURE__ */ jsxRuntimeExports.jsx(p$1$1, {}), /* @__PURE__ */ jsxRuntimeExports.jsxs(d$1$1, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(l$1$1, { children: d8 }), /* @__PURE__ */ jsxRuntimeExports.jsx(A$3, { children: u8 })] }), (r7 == null ? void 0 : r7.showPauseButton) && /* @__PURE__ */ jsxRuntimeExports.jsx(r$1$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(i$1$1, { ref: f8, onClick: s2, onMouseEnter: () => f8.current.focus(), "aria-label": "Resume playback" }) }), /* @__PURE__ */ jsxRuntimeExports.jsxs(u$2, { children: [a7 && /* @__PURE__ */ jsxRuntimeExports.jsx(q$1, { vastUrl: a7 }), /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "ADVERTISEMENT" })] })] }) });
-  }, R$2 = ({ showPauseAd: t7, vastUrls: d8, title: u8, caption: s2, onPlay: o7, onClose: a7, onRender: r7, options: f8 }) => {
-    const [m8, P4] = reactExports.useState(false), [l8, p10] = reactExports.useState(false), n7 = reactExports.useRef(), c8 = d8 == null ? void 0 : d8[0].url, A4 = reactExports.useRef(c8);
-    A4.current = c8;
-    const [T4, g3] = _$2();
+      return window.addEventListener("keydown", A4, { capture: true }), () => window.removeEventListener("keydown", A4, { capture: true });
+    }, [s2]), /* @__PURE__ */ jsxRuntimeExports.jsx(e7, { className: cx_default(t7 && "pause-ad-closing"), children: /* @__PURE__ */ jsxRuntimeExports.jsxs(t$1$1, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(o$1$1, {}), /* @__PURE__ */ jsxRuntimeExports.jsx(n$e, {}), /* @__PURE__ */ jsxRuntimeExports.jsx(p$1$1, {}), /* @__PURE__ */ jsxRuntimeExports.jsxs(d$1$1, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(l$1$1, { children: n$12 }), /* @__PURE__ */ jsxRuntimeExports.jsx(A$3, { children: u8 })] }), (r7 == null ? void 0 : r7.showPauseButton) && /* @__PURE__ */ jsxRuntimeExports.jsx(r$1$1, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(i$1$1, { ref: o7, onClick: d8, onMouseEnter: () => o7.current.focus(), "aria-label": "Resume playback" }) }), /* @__PURE__ */ jsxRuntimeExports.jsxs(u$2, { children: [a7 && /* @__PURE__ */ jsxRuntimeExports.jsx(q$1, { vastUrl: a7 }), /* @__PURE__ */ jsxRuntimeExports.jsx("span", { children: "ADVERTISEMENT" })] })] }) });
+  }, R$2 = ({ showPauseAd: t7, vastUrls: n7, title: u8, caption: d8, onPlay: s2, onClose: a7, onRender: r7, options: o7 }) => {
+    const [f8, A4] = reactExports.useState(false), [m8, l8] = reactExports.useState(false), c8 = reactExports.useRef(), i9 = n7 == null ? void 0 : n7[0].url, h10 = reactExports.useRef(i9);
+    h10.current = i9;
+    const [S7, T4] = _$2();
     return reactExports.useEffect(() => {
-      if (t7 && c8) {
-        eventBus.emit("exposedPauseAd", { action: "enabled", payload: {} }), T4(c8).then((i9) => {
-          A4.current === c8 && (i9 == null ? void 0 : i9.success) !== true && (console.log("then", i9, A4.current, c8, g3.get()), clearTimeout(n7.current), a7 == null || a7());
-        }).catch((i9) => {
-          A4.current === c8 && (console.log("catch", i9, A4.current, c8, g3.get()), clearTimeout(n7.current), a7 == null || a7());
+      if (t7 && i9) {
+        eventBus.emit("exposedPauseAd", { action: "enabled", payload: {} }), S7(i9).then((p10) => {
+          h10.current === i9 && (p10 == null ? void 0 : p10.success) !== true && (clearTimeout(c8.current), a7 == null || a7());
+        }).catch(() => {
+          h10.current === i9 && (clearTimeout(c8.current), a7 == null || a7());
         });
         const E7 = () => {
-          var i9;
-          (i9 = g3.get()[A4.current]) != null && i9.imageSrc ? (clearTimeout(n7.current), p10(false), P4(true), eventBus.emit("exposedPauseAd", { action: "rendered", payload: {} })) : n7.current = setTimeout(() => {
+          var p10;
+          (p10 = T4.get()[h10.current]) != null && p10.imageSrc ? (clearTimeout(c8.current), l8(false), A4(true), eventBus.emit("exposedPauseAd", { action: "rendered", payload: {} })) : c8.current = setTimeout(() => {
             E7();
           }, 200);
         };
-        n7.current = setTimeout(() => {
+        c8.current = setTimeout(() => {
           E7();
         }, 5e3);
-      } else eventBus.emit("exposedPauseAd", { action: "disabled", payload: {} }), p10(true), n7.current = setTimeout(() => {
-        P4(false);
+      } else eventBus.emit("exposedPauseAd", { action: "disabled", payload: {} }), l8(true), c8.current = setTimeout(() => {
+        A4(false);
       }, 400);
       return () => {
-        n7.current && clearTimeout(n7.current);
+        c8.current && clearTimeout(c8.current);
       };
-    }, [g3, T4, a7, t7, c8]), reactExports.useEffect(() => {
-      r7 == null || r7({ rendered: m8 });
-    }, [m8, r7]), reactExports.useEffect(() => () => {
+    }, [T4, S7, a7, t7, i9]), reactExports.useEffect(() => {
+      r7 == null || r7({ rendered: f8 });
+    }, [f8, r7]), reactExports.useEffect(() => () => {
       r7 == null || r7({ rendered: false });
-    }, [r7]), m8 ? /* @__PURE__ */ jsxRuntimeExports.jsx(z$6, { onClose: a7, isClosing: l8, title: u8, caption: s2, onPlay: o7, vastUrl: c8, options: f8 }) : null;
+    }, [r7]), f8 ? /* @__PURE__ */ jsxRuntimeExports.jsx(z$6, { onClose: a7, isClosing: m8, title: u8, caption: d8, onPlay: s2, vastUrl: i9, options: o7 }) : null;
   };
   const N$1$1 = () => ({ color: n7 }) => n7, m$1$1 = /* @__PURE__ */ styled_default("div")({ name: "MediaComponentWrap", class: "mek728j", propsAsIs: false, vars: { "mek728j-0": [N$1$1()] } }), t$k = /* @__PURE__ */ styled_default("div")({ name: "Media", class: "m461t56", propsAsIs: false }), u$1$1 = () => t$k, g$1 = /* @__PURE__ */ styled_default(u$1$1())({ name: "MediaImgBottom", class: "m22bh04", propsAsIs: true }), A$2 = () => t$k, f$1$1 = /* @__PURE__ */ styled_default(A$2())({ name: "MediaVideo", class: "m17u1e34", propsAsIs: true }), C$a = () => t$k, x$1 = /* @__PURE__ */ styled_default(C$a())({ name: "MediaImgContentMedia", class: "m4j3eds", propsAsIs: true }), E$1 = () => t$k, _$1 = /* @__PURE__ */ styled_default(E$1())({ name: "MediaImgSolid", class: "m1lp3swr", propsAsIs: true }), R$1$1 = () => t$k, S$1 = /* @__PURE__ */ styled_default(R$1$1())({ name: "MediaImgRounded", class: "mc7lij", propsAsIs: true }), h$1 = () => t$k, j$1 = /* @__PURE__ */ styled_default(h$1())({ name: "MediaImgCentered", class: "mwwaw7o", propsAsIs: true }), v$1$1 = () => t$k, a$o = /* @__PURE__ */ styled_default(v$1$1())({ name: "MediaNone", class: "mqfzyyr", propsAsIs: true }), D$2 = "v170mtgf", T$1$1 = { [QuestionImages.UNSET]: a$o, [QuestionImages.NONE]: a$o, [QuestionImages.ROUNDED]: S$1, [QuestionImages.CENTERED]: j$1, [QuestionImages.TRANSPARENT]: g$1, [QuestionImages.SOLID]: _$1 }, O$1 = ({ src: n7, imageMode: d8 = QuestionImages.UNSET, withVideo: r7, color: i9, useContentMedia: p10, thumbnailUrl: c8 }) => {
     if (!n7) return /* @__PURE__ */ jsxRuntimeExports.jsx(m$1$1, { color: i9, children: /* @__PURE__ */ jsxRuntimeExports.jsx(a$o, {}) });
@@ -62018,7 +62018,7 @@ Please stay tuned for the next question.` : r7 === QuestionType.PREDICTION ? "St
   };
   const searchParams = new URLSearchParams(window.location.search);
   const PRODUCTION = searchParams.get("production") === null ? window.SL_PRODUCTION !== void 0 && window.SL_PRODUCTION === "true" || true : searchParams.get("production") === "true";
-  const SDK_KEY = searchParams.get("sdk_key") || window.SL_SDK_KEY || "$SDK_KEY";
+  const SDK_KEY = searchParams.get("sdk_key") || window.SL_SDK_KEY || "$TV_SDK_KEY";
   const EVENT_ID = searchParams.get("event_id") || window.SL_EVENT_ID || "$TV_EVENT_ID";
   const channels = window.SL_CHANNELS || [{
     id: "1",
