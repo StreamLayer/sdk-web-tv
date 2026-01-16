@@ -62018,8 +62018,8 @@ Please stay tuned for the next question.` : r7 === QuestionType.PREDICTION ? "St
   };
   const searchParams = new URLSearchParams(window.location.search);
   const PRODUCTION = searchParams.get("production") === null ? window.SL_PRODUCTION !== void 0 && window.SL_PRODUCTION === "true" || true : searchParams.get("production") === "true";
-  const SDK_KEY = searchParams.get("sdk_key") || window.SL_SDK_KEY || "$TV_SDK_KEY";
-  const EVENT_ID = searchParams.get("event_id") || window.SL_EVENT_ID || "$TV_EVENT_ID";
+  const SDK_KEY = searchParams.get("sdk_key") || window.SL_SDK_KEY || "679acc583ca0ad3ae5114a9a50a1646179cdc11f93c210277b30b8e3a807e92d";
+  const EVENT_ID = searchParams.get("event_id") || window.SL_EVENT_ID || "1618000";
   const channels = window.SL_CHANNELS || [{
     id: "1",
     name: "Big Buck Bunny",
