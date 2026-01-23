@@ -62347,8 +62347,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
   const VideoContainer = /* @__PURE__ */ createStyled("div", {
     target: "e1ysgmad26"
   })({
-    name: "1e76vxw",
-    styles: "flex:1;display:flex;align-items:center;justify-content:center;position:relative;background:#0b1520;padding:0"
+    name: "yy2wj7",
+    styles: "flex:1;display:flex;align-items:center;justify-content:center;position:relative;padding:0"
   });
   const VideoWrapper = /* @__PURE__ */ createStyled("div", {
     target: "e1ysgmad25"
@@ -62531,9 +62531,8 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         position: "relative"
       }, children: /* @__PURE__ */ jsx("video", { ref: videoPlayerRef, src: channel2.videoStreamUrl, onPlay: onVideoPlayWithState, onPause: onVideoPauseWithState, style: {
         width: "100%",
-        height: "100%",
         borderRadius: 0,
-        objectFit: "cover"
+        objectFit: "contain"
       }, autoPlay: true, "data-testid": "video-frame", loop: true, playsInline: true, controls: false, controlsList: "nodownload nofullscreen noremoteplayback" }) }) }),
       /* @__PURE__ */ jsx(PlayPauseButton, { ref: playPauseButtonRef, type: "button", style: {
         visibility: !showControls ? "hidden" : "visible"
