@@ -51865,7 +51865,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       if (!e6) return console.error("streamlayer sdk key should be provided"), X2((A6) => (A6 !== null && typeof A6.disableApp == "function" && A6.disableApp(), null)), () => {
         p6 = true;
       };
-      const W8 = zb(e6, n2, l6, { version: "1.20.6", onDeepLinkHandled: o6, videoPlayerController: i2, onContentActivate: a6, skipOnboarding: s10, withAdNotification: r2, withAd: u6, hideFriends: c10, friendsTab: V6, betPack: R2, webOS: g6 });
+      const W8 = zb(e6, n2, l6, { version: "1.20.7", onDeepLinkHandled: o6, videoPlayerController: i2, onContentActivate: a6, skipOnboarding: s10, withAdNotification: r2, withAd: u6, hideFriends: c10, friendsTab: V6, betPack: R2, webOS: g6 });
       if (t2) for (const A6 of t2) W8.use(A6);
       return W8.ready().then((A6) => {
         p6 || (X2(A6.sdk), typeof window < "u");
