@@ -55027,8 +55027,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
   const VideoWrapper = /* @__PURE__ */ createStyled("div", {
     target: "e1ysgmad25"
   })({
-    name: "176c51h",
-    styles: "width:100%;height:100%;position:relative;display:flex;align-items:center;justify-content:center"
+    name: "1xoefz2",
+    styles: "width:100%;position:relative;display:flex;align-items:center;justify-content:center"
   });
   const PlayPauseButton = /* @__PURE__ */ createStyled("button", {
     target: "e1ysgmad22"
