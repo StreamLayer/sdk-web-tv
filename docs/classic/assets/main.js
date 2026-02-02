@@ -44294,6 +44294,12 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return Styled;
     };
   };
+  const Video = /* @__PURE__ */ createStyled("video", {
+    target: "e1ysgmad41"
+  })({
+    name: "1ch9yvl",
+    styles: "border-radius:0"
+  });
   const Container = /* @__PURE__ */ createStyled("div", {
     target: "e1ysgmad40"
   })({
@@ -44491,9 +44497,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         width: "100%",
         height: "100%",
         position: "relative"
-      }, children: /* @__PURE__ */ jsx("video", { ref: videoPlayerRef, src: channel2.videoStreamUrl, onPlay: onVideoPlayWithState, onPause: onVideoPauseWithState, style: {
+      }, children: /* @__PURE__ */ jsx(Video, { ref: videoPlayerRef, src: channel2.videoStreamUrl, onPlay: onVideoPlayWithState, onPause: onVideoPauseWithState, style: {
         width: "100%",
-        borderRadius: 0,
         objectFit: "contain"
       }, autoPlay: true, "data-testid": "video-frame", loop: true, playsInline: true, controls: false, controlsList: "nodownload nofullscreen noremoteplayback" }) }) }),
       /* @__PURE__ */ jsx(PlayPauseButton, { ref: playPauseButtonRef, type: "button", style: {
