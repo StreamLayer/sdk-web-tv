@@ -39757,6 +39757,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
           case "enabled":
             t4.ui.enableExposedPauseAd();
             break;
+          case "closed":
           case "disabled":
             t4.ui.disableExposedPauseAd();
             break;
