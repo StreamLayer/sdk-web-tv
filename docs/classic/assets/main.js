@@ -39757,7 +39757,6 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
           case "enabled":
             t4.ui.enableExposedPauseAd();
             break;
-          case "closed":
           case "disabled":
             t4.ui.disableExposedPauseAd();
             break;
@@ -40663,7 +40662,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
             const i2 = (_a2 = n2.slEventBus) == null ? void 0 : _a2.action;
             if (((_b = n2.slEventBus) == null ? void 0 : _b.type) === "exposedPauseAd") {
               const o2 = n2.slEventBus.payload;
-              i2 === "disabled" && setTimeout(() => {
+              (i2 === "disabled" || i2 === "closed") && setTimeout(() => {
                 this.writeCommon("overlaySessionId", ""), this.writeCommon("topicId", ""), this.writeCommon("topicType", TopicType.UNSET), this.writeCommon("category", Category.UNSET);
               }, 200), i2 === "enabled" && (this.writeCommon("overlaySessionId", v4()), this.writeCommon("category", Category.EXPOSED_PAUSED_AD)), i2 === "loaded" && o2.id && (this.writeCommon("topicId", o2.id), this.writeCommon("topicType", TopicType.UNSET));
             }
