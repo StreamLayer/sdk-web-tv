@@ -44612,7 +44612,11 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     if (!channel2) {
       return /* @__PURE__ */ jsx("div", { children: "no channel" });
     }
-    return /* @__PURE__ */ jsx(distExports.FocusContext.Provider, { value: videoViewFocusKey, children: /* @__PURE__ */ jsx(StreamLayerSDKTv, { showPauseAd, onRenderPauseAd, onClosePauseAd, videoPlayerController, pauseAdVastUrl: [{
+    return /* @__PURE__ */ jsx(distExports.FocusContext.Provider, { value: videoViewFocusKey, children: /* @__PURE__ */ jsx(StreamLayerSDKTv, { showPauseAd, onRenderPauseAd, onClosePauseAd, videoPlayerController, options: {
+      pauseAdDelay: 0,
+      pauseAdRefetchInterval: 1e3 * 60 * 5
+      // 5 minutes
+    }, pauseAdVastUrl: [{
       template: "default",
       url: channel2.vastUrl
     }], children: /* @__PURE__ */ jsx(ContentWrapper, { ref: videoViewRef, children: /* @__PURE__ */ jsxs(VideoContainer, { children: [
