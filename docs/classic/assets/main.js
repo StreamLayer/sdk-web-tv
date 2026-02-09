@@ -19974,7 +19974,7 @@
   function Ce$1(a2, b2, c2) {
     "focusin" === a2 ? (Ae$2(), pe$2 = b2, qe$1 = c2, pe$2.attachEvent("onpropertychange", Be$1)) : "focusout" === a2 && Ae$2();
   }
-  function De$2(a2) {
+  function De$3(a2) {
     if ("selectionchange" === a2 || "keyup" === a2 || "keydown" === a2) return te$4(qe$1);
   }
   function Ee$2(a2, b2) {
@@ -20044,7 +20044,7 @@
     var b2 = a2 && a2.nodeName && a2.nodeName.toLowerCase();
     return b2 && ("input" === b2 && ("text" === a2.type || "search" === a2.type || "tel" === a2.type || "url" === a2.type || "password" === a2.type) || "textarea" === b2 || "true" === a2.contentEditable);
   }
-  function Oe$3(a2) {
+  function Oe$2(a2) {
     var b2 = Me$1(), c2 = a2.focusedElem, d2 = a2.selectionRange;
     if (b2 !== c2 && c2 && c2.ownerDocument && Le$2(c2.ownerDocument.documentElement, c2)) {
       if (null !== d2 && Ne$2(c2)) {
@@ -20068,10 +20068,10 @@
       for (c2 = 0; c2 < b2.length; c2++) a2 = b2[c2], a2.element.scrollLeft = a2.left, a2.element.scrollTop = a2.top;
     }
   }
-  var Pe$2 = ia$1 && "documentMode" in document && 11 >= document.documentMode, Qe$2 = null, Re$1 = null, Se$2 = null, Te$1 = false;
-  function Ue$3(a2, b2, c2) {
+  var Pe$2 = ia$1 && "documentMode" in document && 11 >= document.documentMode, Qe$2 = null, Re$2 = null, Se$2 = null, Te$1 = false;
+  function Ue$2(a2, b2, c2) {
     var d2 = c2.window === c2 ? c2.document : 9 === c2.nodeType ? c2 : c2.ownerDocument;
-    Te$1 || null == Qe$2 || Qe$2 !== Xa$1(d2) || (d2 = Qe$2, "selectionStart" in d2 && Ne$2(d2) ? d2 = { start: d2.selectionStart, end: d2.selectionEnd } : (d2 = (d2.ownerDocument && d2.ownerDocument.defaultView || window).getSelection(), d2 = { anchorNode: d2.anchorNode, anchorOffset: d2.anchorOffset, focusNode: d2.focusNode, focusOffset: d2.focusOffset }), Se$2 && Ie$2(Se$2, d2) || (Se$2 = d2, d2 = oe$1(Re$1, "onSelect"), 0 < d2.length && (b2 = new td("onSelect", "select", null, b2, c2), a2.push({ event: b2, listeners: d2 }), b2.target = Qe$2)));
+    Te$1 || null == Qe$2 || Qe$2 !== Xa$1(d2) || (d2 = Qe$2, "selectionStart" in d2 && Ne$2(d2) ? d2 = { start: d2.selectionStart, end: d2.selectionEnd } : (d2 = (d2.ownerDocument && d2.ownerDocument.defaultView || window).getSelection(), d2 = { anchorNode: d2.anchorNode, anchorOffset: d2.anchorOffset, focusNode: d2.focusNode, focusOffset: d2.focusOffset }), Se$2 && Ie$2(Se$2, d2) || (Se$2 = d2, d2 = oe$1(Re$2, "onSelect"), 0 < d2.length && (b2 = new td("onSelect", "select", null, b2, c2), a2.push({ event: b2, listeners: d2 }), b2.target = Qe$2)));
   }
   function Ve$2(a2, b2) {
     var c2 = {};
@@ -20361,7 +20361,7 @@
           if ("select" === k3 || "input" === k3 && "file" === h3.type) var na2 = ve$2;
           else if (me$2(h3)) if (we$2) na2 = Fe$1;
           else {
-            na2 = De$2;
+            na2 = De$3;
             var xa2 = Ce$1;
           }
           else (k3 = h3.nodeName) && "input" === k3.toLowerCase() && ("checkbox" === h3.type || "radio" === h3.type) && (na2 = Ee$2);
@@ -20375,10 +20375,10 @@
         xa2 = d3 ? ue$1(d3) : window;
         switch (a2) {
           case "focusin":
-            if (me$2(xa2) || "true" === xa2.contentEditable) Qe$2 = xa2, Re$1 = d3, Se$2 = null;
+            if (me$2(xa2) || "true" === xa2.contentEditable) Qe$2 = xa2, Re$2 = d3, Se$2 = null;
             break;
           case "focusout":
-            Se$2 = Re$1 = Qe$2 = null;
+            Se$2 = Re$2 = Qe$2 = null;
             break;
           case "mousedown":
             Te$1 = true;
@@ -20387,13 +20387,13 @@
           case "mouseup":
           case "dragend":
             Te$1 = false;
-            Ue$3(g3, c2, e3);
+            Ue$2(g3, c2, e3);
             break;
           case "selectionchange":
             if (Pe$2) break;
           case "keydown":
           case "keyup":
-            Ue$3(g3, c2, e3);
+            Ue$2(g3, c2, e3);
         }
         var $a2;
         if (ae$2) b: {
@@ -24018,7 +24018,7 @@
       nk.current = null;
       Oj(a2, c2);
       dk(c2, a2);
-      Oe$3(Df);
+      Oe$2(Df);
       dd = !!Cf;
       Df = Cf = null;
       a2.current = c2;
@@ -35144,56 +35144,41 @@
     const r2 = e2.buttonType, y3 = e2.coupon, l2 = (d2 = e2.banner) == null ? void 0 : d2.url, T2 = e2.type;
     return r2 === PromotionButtonType.BASIC ? /* @__PURE__ */ jsxRuntimeExports.jsxs(J$2, { children: [l2 && /* @__PURE__ */ jsxRuntimeExports.jsx(Y$1, { value: l2 }), /* @__PURE__ */ jsxRuntimeExports.jsxs(K$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(O$4, { children: "LEARN MORE" }), /* @__PURE__ */ jsxRuntimeExports.jsx(X$2, { children: "SCAN QR CODE WITH YOUR PHONE CAMERA" })] })] }) : r2 === PromotionButtonType.ADD_TO_WALLET ? /* @__PURE__ */ jsxRuntimeExports.jsxs(J$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(Y$1, { value: y3 }), /* @__PURE__ */ jsxRuntimeExports.jsxs(K$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(O$4, { style: { fontSize: 18, fontWeight: 400 }, children: "ADD TO APPLE WALLET" }), /* @__PURE__ */ jsxRuntimeExports.jsx(X$2, { style: { fontSize: 17 }, children: "SCAN QR CODE WITH YOUR PHONE CAMERA" })] })] }) : r2 === PromotionButtonType.SEND_TO_USER && T2 !== PromotionType.INGAME_IAB11_LBAR ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [/* @__PURE__ */ jsxRuntimeExports.jsxs(C$8, { backgroundColor: (s2 = (R2 = e2 == null ? void 0 : e2.banner) == null ? void 0 : R2.ctaButton) == null ? void 0 : s2.color, textColor: (N2 = (h2 = e2 == null ? void 0 : e2.banner) == null ? void 0 : h2.ctaButton) == null ? void 0 : N2.textColor, autoFocus: true, webos: true, children: [/* @__PURE__ */ jsxRuntimeExports.jsx(U$2, {}), "SEND INFO TO ACCOUNT EMAIL"] }), /* @__PURE__ */ jsxRuntimeExports.jsxs(J$2, { children: [l2 && /* @__PURE__ */ jsxRuntimeExports.jsx(Y$1, { value: l2 }), /* @__PURE__ */ jsxRuntimeExports.jsxs(K$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(O$4, { children: "LEARN MORE" }), /* @__PURE__ */ jsxRuntimeExports.jsx(X$2, { children: "SCAN QR CODE WITH YOUR PHONE CAMERA" })] })] })] }) : r2 === PromotionButtonType.SEND_TO_USER && T2 === PromotionType.INGAME_IAB11_LBAR ? /* @__PURE__ */ jsxRuntimeExports.jsxs(C$8, { backgroundColor: (B2 = (b2 = e2 == null ? void 0 : e2.banner) == null ? void 0 : b2.ctaButton) == null ? void 0 : B2.color, textColor: (I2 = (S2 = e2 == null ? void 0 : e2.banner) == null ? void 0 : S2.ctaButton) == null ? void 0 : I2.textColor, webos: true, autoFocus: true, children: [/* @__PURE__ */ jsxRuntimeExports.jsx(U$2, {}), /* @__PURE__ */ jsxRuntimeExports.jsx(F$4, { children: "SEND INFO TO ACCOUNT EMAIL" })] }) : r2 === PromotionButtonType.RETURN_TO_VIDEO ? /* @__PURE__ */ jsxRuntimeExports.jsx(C$8, { webos: true, autoFocus: true, backgroundColor: (f2 = (D2 = e2 == null ? void 0 : e2.banner) == null ? void 0 : D2.ctaButton) == null ? void 0 : f2.color, textColor: (U$12 = (L2 = e2 == null ? void 0 : e2.banner) == null ? void 0 : L2.ctaButton) == null ? void 0 : U$12.textColor, onClick: M2, children: "BACK TO VIDEO" }) : null;
   };
-  const Ue$1 = O$7(W$4, { isFocusBoundary: true }), Oe$1 = (ae2) => {
-    var T2, k2, _2, $2, O2, j2, G2, H2, g2, q2, Q2, z2, K2, J2, X2, Y2, Z2, v2, F2;
-    const { promotion: o2, open: s2, togglePause: n2, controlVideo: y3, promotionId: l2, onClose: P2, markAsViewed: V2, advertisementPaused: C2, isEventFired: e2, fireEvent: t6, muted: I2 } = ae2, S2 = reactExports.useRef(null), B2 = reactExports.useRef(null), [U2, ne2] = reactExports.useState(0), p2 = o2.type === PromotionType.INGAME_IAB11_LBAR || o2.type === PromotionType.INGAME_IAB11 || o2.type === PromotionType.INGAME_IAB11_SIDEBAR, le2 = p2 ? U2 + 1 : U2 / 2, N2 = !!((k2 = (T2 = o2.banner) == null ? void 0 : T2.video) != null && k2.url), m2 = o2.autoPlayVideo === AutoPlayVideo.ENABLED, A2 = o2.playVideoMuted === PlayVideoMuted.ENABLED, D2 = A2 && m2, [u2, x2] = reactExports.useState(true), [W3, L2] = reactExports.useState(void 0);
-    let h2 = (_2 = o2.banner) == null ? void 0 : _2.url;
-    return h2 && !h2.startsWith("http") && (h2 = `https://${h2}`), reactExports.useEffect(() => {
-      if (!B2.current) return;
-      const a2 = new ResizeObserver(([c2]) => {
-        const ie2 = c2.contentRect.width;
-        ne2(ie2);
+  const Re$1 = O$7(W$4, { isFocusBoundary: true }), De$1 = (H2) => {
+    var P2, C2, S2, N2, g2, v2, x2, D2, U2, W3, L2, k2, T2, _2;
+    const { promotion: e2, open: c2, togglePause: a2, controlVideo: p2, promotionId: i2, onClose: M2, markAsViewed: b2, advertisementPaused: $2, isEventFired: o2, fireEvent: t6, muted: q2 } = H2, z2 = reactExports.useRef(null), f2 = reactExports.useRef(null), [A2, K2] = reactExports.useState(0), l2 = e2.type === PromotionType.INGAME_IAB11_LBAR || e2.type === PromotionType.INGAME_IAB11 || e2.type === PromotionType.INGAME_IAB11_SIDEBAR, Q2 = l2 ? A2 + 1 : A2 / 2, R2 = !!((C2 = (P2 = e2.banner) == null ? void 0 : P2.video) != null && C2.url), u2 = e2.autoPlayVideo === AutoPlayVideo.ENABLED, w2 = e2.playVideoMuted === PlayVideoMuted.ENABLED, J2 = w2 && u2, [I2, X2] = reactExports.useState(true), [Y2, Z2] = reactExports.useState(void 0);
+    let m2 = (S2 = e2.banner) == null ? void 0 : S2.url;
+    return m2 && !m2.startsWith("http") && (m2 = `https://${m2}`), reactExports.useEffect(() => {
+      if (!f2.current) return;
+      const n2 = new ResizeObserver(([y3]) => {
+        const F2 = y3.contentRect.width;
+        K2(F2);
       });
-      return a2.observe(B2.current), distExports.updateAllLayouts(), () => {
-        a2.disconnect();
+      return n2.observe(f2.current), distExports.updateAllLayouts(), () => {
+        n2.disconnect();
       };
     }, []), reactExports.useEffect(() => {
-      n2 == null || n2(N2 || m2), s2 == null || s2();
-    }, [N2, m2, s2, n2]), reactExports.useEffect(() => {
-      l2 && o2.type && V2 && V2();
-    }, [l2, o2.type, V2]), reactExports.useEffect(() => () => {
-      y3 == null || y3({ muted: false });
-    }, [y3]), /* @__PURE__ */ jsxRuntimeExports.jsx(b$5, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(g$7, { ref: B2, children: [/* @__PURE__ */ jsxRuntimeExports.jsxs(Q$2, { children: [o2.logoMode === 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(y$d, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(S$5, { src: ($2 = o2.sponsor) == null ? void 0 : $2.logo, alt: "Logo" }), /* @__PURE__ */ jsxRuntimeExports.jsxs(T$3, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(M$3, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(_$4, { children: (O2 = o2.sponsor) == null ? void 0 : O2.name }) }), /* @__PURE__ */ jsxRuntimeExports.jsx(j$3, { children: "SPONSORED" })] })] }), o2.logoMode === 2 && p2 && /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: (j2 = o2.sponsor) == null ? void 0 : j2.logo, alt: "Video paused preview", style: { height: "56px" } }), /* @__PURE__ */ jsxRuntimeExports.jsx(Ue$1, { autoFocus: true, options: { focusKey: "close-ad-button" }, webos: true, onClick: P2, "data-close-btn": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(H$1, {}) })] }), o2.logoMode === 2 && !p2 && /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: (G2 = o2.sponsor) == null ? void 0 : G2.logo, alt: "Video paused preview", style: { display: "block", alignSelf: "center", maxHeight: "72px", width: "auto" } }), /* @__PURE__ */ jsxRuntimeExports.jsxs(k$7, { "data-format11": p2, children: [((H2 = o2.banner) == null ? void 0 : H2.imageUrl) && /* @__PURE__ */ jsxRuntimeExports.jsx(z$3, { style: { height: le2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: (g2 = o2.banner) == null ? void 0 : g2.imageUrl, alt: "Video paused preview", style: { width: "100%", height: "100%", objectFit: "cover" } }) }), ((q2 = o2.banner) == null ? void 0 : q2.video) && /* @__PURE__ */ jsxRuntimeExports.jsxs(D$7, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(q$5, { source: o2.banner.video.url, poster: (z2 = (Q2 = o2.banner) == null ? void 0 : Q2.video) == null ? void 0 : z2.thumbnailUrl, webos: true, aspectRatio: p2 ? "1/1" : "2/1", ref: S2, onRender: () => {
-      e2 != null && e2("video-rendered") || (eventBus.emit("advertisement", { action: "videoRendered", payload: { id: l2, type: o2.type } }), t6 == null || t6("video-rendered"));
-    }, onQuartile: (a2) => {
-      e2 != null && e2(`video-quartile-${a2}`) || (eventBus.emit("advertisement", { action: "quartileCompleted", payload: { id: l2, type: o2.type, quartile: a2 } }), t6 == null || t6(`video-quartile-${a2}`));
-    }, onMute: (a2) => {
-      const c2 = a2 ? "muted" : "unmuted";
-      e2 != null && e2(c2) || (eventBus.emit("advertisement", { action: a2 ? "videoMuted" : "videoUnmuted", payload: { id: l2, type: o2.type } }), t6 == null || t6(c2)), L2(a2);
+      a2 == null || a2(R2 || u2), c2 == null || c2();
+    }, [R2, u2, c2, a2]), reactExports.useEffect(() => {
+      i2 && e2.type && b2 && b2();
+    }, [i2, e2.type, b2]), reactExports.useEffect(() => () => {
+      p2 == null || p2({ muted: false });
+    }, [p2]), /* @__PURE__ */ jsxRuntimeExports.jsx(b$5, { children: /* @__PURE__ */ jsxRuntimeExports.jsxs(g$7, { ref: f2, children: [/* @__PURE__ */ jsxRuntimeExports.jsxs(Q$2, { children: [e2.logoMode === 1 && /* @__PURE__ */ jsxRuntimeExports.jsxs(y$d, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(S$5, { src: (N2 = e2.sponsor) == null ? void 0 : N2.logo, alt: "Logo" }), /* @__PURE__ */ jsxRuntimeExports.jsxs(T$3, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(M$3, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(_$4, { children: (g2 = e2.sponsor) == null ? void 0 : g2.name }) }), /* @__PURE__ */ jsxRuntimeExports.jsx(j$3, { children: "SPONSORED" })] })] }), e2.logoMode === 2 && l2 && /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: (v2 = e2.sponsor) == null ? void 0 : v2.logo, alt: "Video paused preview", style: { height: "56px" } }), /* @__PURE__ */ jsxRuntimeExports.jsx(Re$1, { autoFocus: true, options: { focusKey: "close-ad-button" }, webos: true, onClick: M2, "data-close-btn": "true", children: /* @__PURE__ */ jsxRuntimeExports.jsx(H$1, {}) })] }), e2.logoMode === 2 && !l2 && /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: (x2 = e2.sponsor) == null ? void 0 : x2.logo, alt: "Video paused preview", style: { display: "block", alignSelf: "center", maxHeight: "72px", width: "auto" } }), /* @__PURE__ */ jsxRuntimeExports.jsxs(k$7, { "data-format11": l2, children: [((D2 = e2.banner) == null ? void 0 : D2.imageUrl) && /* @__PURE__ */ jsxRuntimeExports.jsx(z$3, { style: { height: Q2 }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: (U2 = e2.banner) == null ? void 0 : U2.imageUrl, alt: "Video paused preview", style: { width: "100%", height: "100%", objectFit: "cover" } }) }), ((W3 = e2.banner) == null ? void 0 : W3.video) && /* @__PURE__ */ jsxRuntimeExports.jsxs(D$7, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(q$5, { source: e2.banner.video.url, poster: (k2 = (L2 = e2.banner) == null ? void 0 : L2.video) == null ? void 0 : k2.thumbnailUrl, webos: true, aspectRatio: l2 ? "1/1" : "2/1", ref: z2, onRender: () => {
+      o2 != null && o2("video-rendered") || (eventBus.emit("advertisement", { action: "videoRendered", payload: { id: i2, type: e2.type } }), t6 == null || t6("video-rendered"));
+    }, onQuartile: (n2) => {
+      o2 != null && o2(`video-quartile-${n2}`) || (eventBus.emit("advertisement", { action: "quartileCompleted", payload: { id: i2, type: e2.type, quartile: n2 } }), t6 == null || t6(`video-quartile-${n2}`));
+    }, onMute: (n2) => {
+      const y3 = n2 ? "muted" : "unmuted";
+      o2 != null && o2(y3) || (eventBus.emit("advertisement", { action: n2 ? "videoMuted" : "videoUnmuted", payload: { id: i2, type: e2.type } }), t6 == null || t6(y3)), Z2(n2);
     }, onPause: () => {
-      n2 == null || n2(true), x2(false);
+      a2 == null || a2(true), X2(false);
     }, onReplay: () => {
-      e2 != null && e2("replayed") || (eventBus.emit("advertisement", { action: "videoReplayed", payload: { id: l2, type: o2.type } }), t6 == null || t6("replayed"));
+      o2 != null && o2("replayed") || (eventBus.emit("advertisement", { action: "videoReplayed", payload: { id: i2, type: e2.type } }), t6 == null || t6("replayed"));
     }, onPlay: () => {
-      e2 != null && e2("played") || (eventBus.emit("advertisement", { action: "videoPlay", payload: { id: l2, type: o2.type } }), t6 == null || t6("played")), n2 == null || n2(false), e2 != null && e2("played") && e2 != null && e2("ended") && !(e2 != null && e2("replayed")) && (eventBus.emit("advertisement", { action: "videoReplayed", payload: { id: l2, type: o2.type } }), t6 == null || t6("replayed"));
+      o2 != null && o2("played") || (eventBus.emit("advertisement", { action: "videoPlay", payload: { id: i2, type: e2.type } }), t6 == null || t6("played")), a2 == null || a2(false), o2 != null && o2("played") && o2 != null && o2("ended") && !(o2 != null && o2("replayed")) && (eventBus.emit("advertisement", { action: "videoReplayed", payload: { id: i2, type: e2.type } }), t6 == null || t6("replayed"));
     }, onEnd: () => {
-      e2 != null && e2("ended") || (eventBus.emit("advertisement", { action: "videoEnd", payload: { id: l2, type: o2.type } }), t6 == null || t6("ended"));
-    }, muted: I2, autoPlay: m2, playMuted: A2, controlVideo: y3, hasNotPausedVideo: u2 }), C2 && !u2 && /* @__PURE__ */ jsxRuntimeExports.jsxs($$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(B1, { name: "icon-pause" }), "PAUSED"] }), W3 && D2 && /* @__PURE__ */ jsxRuntimeExports.jsxs($$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(B1, { name: "iconMute" }), "MUTED"] })] }), !p2 && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(E$4, { children: (K2 = o2.banner) == null ? void 0 : K2.title }), /* @__PURE__ */ jsxRuntimeExports.jsx(G$3, { children: (J2 = o2.banner) == null ? void 0 : J2.body })] }), ((X2 = o2.banner) == null ? void 0 : X2.video) && /* @__PURE__ */ jsxRuntimeExports.jsxs(D$7, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(q$5, { source: o2.banner.video.url, poster: (Z2 = (Y2 = o2.banner) == null ? void 0 : Y2.video) == null ? void 0 : Z2.thumbnailUrl, webos: true, aspectRatio: p2 ? "1/1" : "2/1", ref: S2, onRender: () => {
-      e2 != null && e2("video-rendered") || (eventBus.emit("advertisement", { action: "videoRendered", payload: { id: l2, type: o2.type } }), t6 == null || t6("video-rendered"));
-    }, onQuartile: (a2) => {
-      e2 != null && e2(`video-quartile-${a2}`) || (eventBus.emit("advertisement", { action: "quartileCompleted", payload: { id: l2, type: o2.type, quartile: a2 } }), t6 == null || t6(`video-quartile-${a2}`));
-    }, onMute: (a2) => {
-      const c2 = a2 ? "muted" : "unmuted";
-      e2 != null && e2(c2) || (eventBus.emit("advertisement", { action: a2 ? "videoMuted" : "videoUnmuted", payload: { id: l2, type: o2.type } }), t6 == null || t6(c2)), L2(a2);
-    }, onPause: () => {
-      n2 == null || n2(true), x2(false);
-    }, onReplay: () => {
-      e2 != null && e2("replayed") || (eventBus.emit("advertisement", { action: "videoReplayed", payload: { id: l2, type: o2.type } }), t6 == null || t6("replayed"));
-    }, onPlay: () => {
-      e2 != null && e2("played") || (eventBus.emit("advertisement", { action: "videoPlay", payload: { id: l2, type: o2.type } }), t6 == null || t6("played")), n2 == null || n2(false), e2 != null && e2("played") && e2 != null && e2("ended") && !(e2 != null && e2("replayed")) && (eventBus.emit("advertisement", { action: "videoReplayed", payload: { id: l2, type: o2.type } }), t6 == null || t6("replayed"));
-    }, onEnd: () => {
-      e2 != null && e2("ended") || (eventBus.emit("advertisement", { action: "videoEnd", payload: { id: l2, type: o2.type } }), t6 == null || t6("ended"));
-    }, muted: I2, autoPlay: m2, playMuted: A2, controlVideo: y3, hasNotPausedVideo: u2 }), C2 && !u2 && /* @__PURE__ */ jsxRuntimeExports.jsxs($$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(B1, { name: "icon-pause" }), "PAUSED"] }), W3 && D2 && /* @__PURE__ */ jsxRuntimeExports.jsxs($$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(B1, { name: "iconMute" }), "MUTED"] })] }), /* @__PURE__ */ jsxRuntimeExports.jsxs(V$2, { "data-format11": p2, children: [!p2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(E$4, { children: (v2 = o2.banner) == null ? void 0 : v2.title }), /* @__PURE__ */ jsxRuntimeExports.jsx(G$3, { children: (F2 = o2.banner) == null ? void 0 : F2.body })] }), /* @__PURE__ */ jsxRuntimeExports.jsx(w$9, { promotion: o2, onClose: P2 })] })] })] }) });
+      o2 != null && o2("ended") || (eventBus.emit("advertisement", { action: "videoEnd", payload: { id: i2, type: e2.type } }), t6 == null || t6("ended"));
+    }, muted: q2, autoPlay: u2, playMuted: w2, controlVideo: p2, hasNotPausedVideo: I2 }), $2 && !I2 && /* @__PURE__ */ jsxRuntimeExports.jsxs($$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(B1, { name: "icon-pause" }), "PAUSED"] }), Y2 && J2 && /* @__PURE__ */ jsxRuntimeExports.jsxs($$2, { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(B1, { name: "iconMute" }), "MUTED"] })] }), /* @__PURE__ */ jsxRuntimeExports.jsxs(V$2, { "data-format11": l2, children: [!l2 && /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [/* @__PURE__ */ jsxRuntimeExports.jsx(E$4, { children: (T2 = e2.banner) == null ? void 0 : T2.title }), /* @__PURE__ */ jsxRuntimeExports.jsx(G$3, { children: (_2 = e2.banner) == null ? void 0 : _2.body })] }), /* @__PURE__ */ jsxRuntimeExports.jsx(w$9, { promotion: e2, onClose: M2 })] })] })] }) });
   };
   const i$j = /* @__PURE__ */ styled_default("div")({ name: "NotificationContent", class: "n18wsqoo", propsAsIs: false }), p$k = /* @__PURE__ */ styled_default("div")({ name: "Body", class: "b1ia90c2", propsAsIs: false }), l$k = /* @__PURE__ */ styled_default("div")({ name: "Title", class: "tg2z08v", propsAsIs: false }), m$b = /* @__PURE__ */ styled_default("div")({ name: "Text", class: "t59zdk1", propsAsIs: false }), t$n = /* @__PURE__ */ styled_default("div")({ name: "MediaImgBottom", class: "m1ab9fq", propsAsIs: false }), n$a = () => t$n, r$j = /* @__PURE__ */ styled_default(n$a())({ name: "MediaImgMiddle", class: "m9fsr0y", propsAsIs: true }), f$b = /* @__PURE__ */ styled_default("img")({ name: "CtaIcon", class: "cvi9y5q", propsAsIs: false }), I$8 = /* @__PURE__ */ styled_default("div")({ name: "Logo", class: "l5mq0z", propsAsIs: false }), A$f = /* @__PURE__ */ styled_default("div")({ name: "Footer", class: "f1mse0ft", propsAsIs: false }), u$b = /* @__PURE__ */ styled_default("div")({ name: "Vector", class: "v1hcloah", propsAsIs: false }), v$9 = /* @__PURE__ */ styled_default("div")({ name: "NotificationContainer", class: "n3n65jf", propsAsIs: false }), o$b = /* @__PURE__ */ styled_default("button")({ name: "TVButton", class: "tkkfuqy", propsAsIs: false }), a$r = () => o$b, B$4 = /* @__PURE__ */ styled_default(a$r())({ name: "DismissButton", class: "dh9vato", propsAsIs: true }), e$e = () => o$b, g$6 = /* @__PURE__ */ styled_default(e$e())({ name: "OpenButton", class: "oeah8gv", propsAsIs: true });
   const k$6 = { [NotificationPromotionImagePosition.UNSET]: t$n, [NotificationPromotionImagePosition.FIT]: t$n, [NotificationPromotionImagePosition.CENTERED]: t$n, [NotificationPromotionImagePosition.SOLID]: t$n, [NotificationPromotionImagePosition.BOTTOM]: t$n, [NotificationPromotionImagePosition.MIDDLE]: r$j }, w$8 = ({ src: r2, imagePosition: s2 }) => {
@@ -35219,7 +35204,7 @@
     }, name: "promo-button", style: { color: o2 == null ? void 0 : o2.textColor, backgroundColor: o2 == null ? void 0 : o2.color }, children: [(o2 == null ? void 0 : o2.ctaIcon) && (o2 == null ? void 0 : o2.ctaIconMode) === CtaIconMode.CTA_ICON_TRANSPARENT && /* @__PURE__ */ jsxRuntimeExports.jsx(y$b, { src: o2 == null ? void 0 : o2.ctaIcon, alt: "cta-icon" }), (o2 == null ? void 0 : o2.label) || "Open"] }), /* @__PURE__ */ jsxRuntimeExports.jsx(T$2, { name: "chevronRight" })] })] }) });
   };
   const d$d = /* @__PURE__ */ styled_default("div")({ name: "SidebarContainer", class: "s1abskp8", propsAsIs: false }), b$4 = ({ children: e2, direction: o2, style: s2, className: i2, hiding: n2 }) => /* @__PURE__ */ jsxRuntimeExports.jsx(k$9, { direction: o2, style: s2, hiding: n2, className: i2, children: /* @__PURE__ */ jsxRuntimeExports.jsx(d$d, { children: e2 }) });
-  const A$d = ({ advertisement: o2, close: t6, skipAutoClose: p2, sidebar: n2, banner: f2, markAsViewed: c2, open: i2, controlVideo: l2, advertisementPaused: d2, togglePause: a2, isEventFired: m2, fireEvent: u2, muted: I2, toggleMute: h2, isNotification: q2 }) => o2.promotion ? q2 && o2.notification ? /* @__PURE__ */ jsxRuntimeExports.jsx(w$7, { open: () => i2 == null ? void 0 : i2({ fromNotification: true }), notification: o2.notification, promotionId: o2.question.id, close: t6, webos: true }) : n2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { className: "PromoSidebarContainer", direction: n2, hiding: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Oe$1, { markAsViewed: c2, promotionId: o2.question.id, promotion: o2.promotion, onClose: t6, open: i2, controlVideo: l2, skipAutoClose: p2, advertisementPaused: d2, togglePause: a2, isEventFired: m2, fireEvent: u2, muted: I2, toggleMute: h2 }) }) : f2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(x$c, { promotionId: o2.question.id, hiding: false, promotion: o2.promotion, direction: f2, isEventFired: m2, fireEvent: u2 }) : null : null;
+  const A$d = ({ advertisement: o2, close: t6, skipAutoClose: p2, sidebar: n2, banner: f2, markAsViewed: c2, open: i2, controlVideo: l2, advertisementPaused: d2, togglePause: a2, isEventFired: m2, fireEvent: u2, muted: I2, toggleMute: h2, isNotification: q2 }) => o2.promotion ? q2 && o2.notification ? /* @__PURE__ */ jsxRuntimeExports.jsx(w$7, { open: () => i2 == null ? void 0 : i2({ fromNotification: true }), notification: o2.notification, promotionId: o2.question.id, close: t6, webos: true }) : n2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(b$4, { className: "PromoSidebarContainer", direction: n2, hiding: false, children: /* @__PURE__ */ jsxRuntimeExports.jsx(De$1, { markAsViewed: c2, promotionId: o2.question.id, promotion: o2.promotion, onClose: t6, open: i2, controlVideo: l2, skipAutoClose: p2, advertisementPaused: d2, togglePause: a2, isEventFired: m2, fireEvent: u2, muted: I2, toggleMute: h2 }) }) : f2 ? /* @__PURE__ */ jsxRuntimeExports.jsx(x$c, { promotionId: o2.question.id, hiding: false, promotion: o2.promotion, direction: f2, isEventFired: m2, fireEvent: u2 }) : null : null;
   const D$6 = /* @__PURE__ */ styled_default("div")({ name: "AdvertisementUIWrap", class: "a17b2u9w", propsAsIs: false }), ee$1 = (t6) => {
     const r2 = t6.target;
     if (r2 instanceof HTMLAnchorElement && r2.target === "_blank") {
@@ -35227,14 +35212,14 @@
       r2.getAttribute("data-a") === "button" && eventBus.emit("advertisement", { action: "buttonSelect", payload: { id: s2, type: a2 } }), r2.getAttribute("data-a") === "banner" && eventBus.emit("advertisement", { action: "bannerSelect", payload: { id: s2, type: a2 } });
     }
   }, te$2 = reactExports.forwardRef(({ gamification: t6, skipAutoClose: r2, containerId: s2, muted: a2, notification: i2, sidebar: d2, banner: n2, persistent: c2, controlVideo: p2 }, m2) => {
-    var A2, b2, g2, S2, y3, L2, U2, P2, I2, W3, O2, h2, k2, E2, T2, B2;
+    var A2, g2, b2, S2, y3, L2, U2, P2, I2, W3, O2, h2, k2, E2, T2, B2;
     const e2 = useStore(t6.advertisement.$store), o2 = useStore(t6.openedQuestion.$store), f2 = useStore(t6.openedQuestion.$extendedStore), { finished: v2 } = S$8();
     b$8(m2, { enabled: !!e2.data, event: "click", listener: ee$1 }), reactExports.useEffect(() => {
       var w2;
       v2 && ((w2 = e2.close) == null || w2.call(e2));
     }, [v2]);
-    const F2 = ((g2 = (b2 = (A2 = e2.data) == null ? void 0 : A2.question) == null ? void 0 : b2.backgroundImage) == null ? void 0 : g2.landscapeUrl) || ((y3 = (S2 = e2.data) == null ? void 0 : S2.promotion) == null ? void 0 : y3.backgroundImageLandscapeUrl), M2 = ((P2 = (U2 = (L2 = e2.data) == null ? void 0 : L2.question) == null ? void 0 : U2.backgroundImage) == null ? void 0 : P2.portraitUrl) || ((W3 = (I2 = e2.data) == null ? void 0 : I2.promotion) == null ? void 0 : W3.backgroundImagePortraitUrl), R2 = y$g({ containerId: s2, landscapeUrl: F2, portraitUrl: M2 }), K2 = ((h2 = (O2 = f2 == null ? void 0 : f2.data) == null ? void 0 : O2.appearance) == null ? void 0 : h2.position) === QuestionPosition.LBAR;
-    return n2 && e2.data === void 0 && ((k2 = o2 == null ? void 0 : o2.attributes) == null ? void 0 : k2.adUnit) === AdUnit.STANDART && K2 && (B2 = (T2 = (E2 = o2 == null ? void 0 : o2.attributes) == null ? void 0 : E2.adPromotion) == null ? void 0 : T2.banner) != null && B2.imageUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(D$6, { ref: m2, style: { height: "100%" }, className: cx_default("SL-AdvertisementWebOs", "SL-AdvertisementWebOs--banner"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(a$u, { cardId: o2.id, promotion: { ...o2.attributes.adPromotion, adUnit: o2.attributes.adUnit }, direction: n2 }) }) : e2.data === void 0 || !c2 && e2.isViewed ? null : /* @__PURE__ */ jsxRuntimeExports.jsxs(D$6, { ref: m2, style: { height: d2 ? "100%" : "auto" }, className: cx_default("SL-AdvertisementWebOs", !d2 && !n2 && !i2 && "SL-AdvertisementWebOs--overlay", d2 && "SL-AdvertisementWebOs--sidebar", n2 && "SL-AdvertisementWebOs--banner", i2 && "SL-AdvertisementWebOs--notification"), children: [!i2 && R2, /* @__PURE__ */ jsxRuntimeExports.jsx(A$d, { sidebar: d2, banner: n2, advertisement: e2.data, advertisementPaused: !!e2.isPaused, togglePause: e2.togglePause || (() => {
+    const F2 = ((b2 = (g2 = (A2 = e2.data) == null ? void 0 : A2.question) == null ? void 0 : g2.backgroundImage) == null ? void 0 : b2.landscapeUrl) || ((y3 = (S2 = e2.data) == null ? void 0 : S2.promotion) == null ? void 0 : y3.backgroundImageLandscapeUrl), M2 = ((P2 = (U2 = (L2 = e2.data) == null ? void 0 : L2.question) == null ? void 0 : U2.backgroundImage) == null ? void 0 : P2.portraitUrl) || ((W3 = (I2 = e2.data) == null ? void 0 : I2.promotion) == null ? void 0 : W3.backgroundImagePortraitUrl), R2 = y$g({ containerId: s2, landscapeUrl: F2, portraitUrl: M2 }), K2 = ((h2 = (O2 = f2 == null ? void 0 : f2.data) == null ? void 0 : O2.appearance) == null ? void 0 : h2.position) === QuestionPosition.LBAR;
+    return n2 && e2.data === void 0 && ((k2 = o2 == null ? void 0 : o2.attributes) == null ? void 0 : k2.adUnit) === AdUnit.STANDART && K2 && (B2 = (T2 = (E2 = o2 == null ? void 0 : o2.attributes) == null ? void 0 : E2.adPromotion) == null ? void 0 : T2.banner) != null && B2.imageUrl ? /* @__PURE__ */ jsxRuntimeExports.jsx(D$6, { ref: m2, style: { height: "100%" }, className: cx_default("SL-AdvertisementWebOs", "SL-AdvertisementWebOs--banner"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(a$u, { cardId: o2.id, promotion: { ...o2.attributes.adPromotion, adUnit: o2.attributes.adUnit }, direction: n2 }) }) : e2.data === void 0 || !c2 && e2.isViewed ? null : /* @__PURE__ */ jsxRuntimeExports.jsxs(D$6, { ref: m2, style: { height: d2 || n2 ? "100%" : "auto" }, className: cx_default("SL-AdvertisementWebOs", !d2 && !n2 && !i2 && "SL-AdvertisementWebOs--overlay", d2 && "SL-AdvertisementWebOs--sidebar", n2 && "SL-AdvertisementWebOs--banner", i2 && "SL-AdvertisementWebOs--notification"), children: [!i2 && R2, /* @__PURE__ */ jsxRuntimeExports.jsx(A$d, { sidebar: d2, banner: n2, advertisement: e2.data, advertisementPaused: !!e2.isPaused, togglePause: e2.togglePause || (() => {
     }), toggleMute: e2.toggleMute || (() => {
     }), close: e2.close, isEventFired: e2.isEventFired, fireEvent: e2.fireEvent, markAsViewed: t6.advertisement.markAsViewed, open: t6.advertisement.open, isNotification: i2, skipAutoClose: r2, controlVideo: p2, muted: a2 })] });
   }), ve$1 = ({ sdk: t6, sidebar: r2, muted: s2, banner: a2, skipAutoClose: i2, persistent: d2, notification: n2 }) => {
@@ -37583,17 +37568,17 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
   H$3.argv = [];
   H$3.version = "";
   H$3.versions = {};
-  function Oe$2() {
+  function Oe$1() {
   }
-  H$3.on = Oe$2;
-  H$3.addListener = Oe$2;
-  H$3.once = Oe$2;
-  H$3.off = Oe$2;
-  H$3.removeListener = Oe$2;
-  H$3.removeAllListeners = Oe$2;
-  H$3.emit = Oe$2;
-  H$3.prependListener = Oe$2;
-  H$3.prependOnceListener = Oe$2;
+  H$3.on = Oe$1;
+  H$3.addListener = Oe$1;
+  H$3.once = Oe$1;
+  H$3.off = Oe$1;
+  H$3.removeListener = Oe$1;
+  H$3.removeAllListeners = Oe$1;
+  H$3.emit = Oe$1;
+  H$3.prependListener = Oe$1;
+  H$3.prependOnceListener = Oe$1;
   H$3.listeners = function(t6) {
     return [];
   };
@@ -37669,7 +37654,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     const e2 = Object.keys(t6);
     return /* @__PURE__ */ computed(e2.map((r2) => t6[r2].getStore()), (...r2) => Object.fromEntries(e2.map((n2, i2) => [n2, r2[i2]])));
   };
-  let De$1 = class De extends Mt {
+  let De$2 = class De extends Mt {
     constructor() {
       super(...arguments);
       __publicField(this, "getValues", () => this.getStore().get());
@@ -37742,7 +37727,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       __publicField(this, "update", (e22, r22) => {
         this.source === Se$1.STREAM && r22 === Se$1.ORGANIZATION || (this.setFeatureConfig(e22), this.source = r22);
       });
-      this.settingsKey = Is[r2.type], this.status = /* @__PURE__ */ atom(Le$1.Suspended), this.config = new De$1(te$3(r2), `feature:config:${this.settingsKey}`), this.settingsKey !== void 0 && (e2 == null ? void 0 : e2.overlaySettings.case) === this.settingsKey ? this.settings = new De$1(te$3(e2.overlaySettings.value), `feature:settings:${this.settingsKey}`) : this.settings = new De$1(te$3({}), `feature:settings:${this.settingsKey}`), this.source = n2;
+      this.settingsKey = Is[r2.type], this.status = /* @__PURE__ */ atom(Le$1.Suspended), this.config = new De$2(te$3(r2), `feature:config:${this.settingsKey}`), this.settingsKey !== void 0 && (e2 == null ? void 0 : e2.overlaySettings.case) === this.settingsKey ? this.settings = new De$2(te$3(e2.overlaySettings.value), `feature:settings:${this.settingsKey}`) : this.settings = new De$2(te$3({}), `feature:settings:${this.settingsKey}`), this.source = n2;
     }
     get featureConfig() {
       return this.config.getStore();
@@ -37994,7 +37979,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       });
       var _a2, _b, _c2, _d;
       const s2 = { status: ae$1.Init, ts: /* @__PURE__ */ new Date(), log: [] };
-      this.state = new De$1(te$3(s2), `subscription:${i2.name}:state`), this.options = { ...i2, reconnectDelay: (_a2 = i2.reconnectDelay) != null ? _a2 : 1e3, reconnectMaxDelay: (_b = i2.reconnectMaxDelay) != null ? _b : 3e4, reconnectMaxAttempts: (_c2 = i2.reconnectMaxAttempts) != null ? _c2 : 10, withStore: (_d = i2.withStore) != null ? _d : false }, this.headers = e2, this.listeners = /* @__PURE__ */ new Map(), this.params = n2, this.method = r2, i2.withStore && (this.store = new se$2(K$4(null), `subscription:${i2.name}:store`)), "subscribe" in n2 && typeof n2.subscribe == "function" && (this.paramsListener = n2.subscribe((o2) => {
+      this.state = new De$2(te$3(s2), `subscription:${i2.name}:state`), this.options = { ...i2, reconnectDelay: (_a2 = i2.reconnectDelay) != null ? _a2 : 1e3, reconnectMaxDelay: (_b = i2.reconnectMaxDelay) != null ? _b : 3e4, reconnectMaxAttempts: (_c2 = i2.reconnectMaxAttempts) != null ? _c2 : 10, withStore: (_d = i2.withStore) != null ? _d : false }, this.headers = e2, this.listeners = /* @__PURE__ */ new Map(), this.params = n2, this.method = r2, i2.withStore && (this.store = new se$2(K$4(null), `subscription:${i2.name}:store`)), "subscribe" in n2 && typeof n2.subscribe == "function" && (this.paramsListener = n2.subscribe((o2) => {
         this.state.getValue("status") === ae$1.Connected && (this.addStateLog(`params updated, reconnect => ${JSON.stringify(o2)}`), this.reconnect());
       })), this.updateState(ae$1.Ready);
     }
@@ -38107,7 +38092,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         };
         this.interceptors.push(e22), window.localStorage.getItem("SL_GRPC_DEVTOOLS") === "true" ? this.interceptors.push(Ns()) : console.warn("SL GRPC DevTools is disabled. To enable, set SL_GRPC_DEVTOOLS to true in localStorage."), ((_a2 = this.opts) == null ? void 0 : _a2.retryable) && this.interceptors.push(Rs);
       });
-      this.host = e2, this.opts = r2, this.$headers = new De$1(te$3({ "sl-device-id": Ps(), "sl-device-os": _s(), "sl-platform": Ds(r2 == null ? void 0 : r2.webOS) }), "transport:headers"), this.initInterceptors(), this.clients = /* @__PURE__ */ new Map(), this.streamClients = /* @__PURE__ */ new Map(), this.subscriptions = /* @__PURE__ */ new Map(), this.storeCache = /* @__PURE__ */ new Map();
+      this.host = e2, this.opts = r2, this.$headers = new De$2(te$3({ "sl-device-id": Ps(), "sl-device-os": _s(), "sl-platform": Ds(r2 == null ? void 0 : r2.webOS) }), "transport:headers"), this.initInterceptors(), this.clients = /* @__PURE__ */ new Map(), this.streamClients = /* @__PURE__ */ new Map(), this.subscriptions = /* @__PURE__ */ new Map(), this.storeCache = /* @__PURE__ */ new Map();
       const [n2, i2, s2] = nanoquery({ dedupeTime: r2 == null ? void 0 : r2.dedupeTime, revalidateInterval: r2 == null ? void 0 : r2.refetchInterval });
       this.nanoquery = { createFetcherStore: n2, createMutatorStore: i2, utils: s2 }, this.transport = createGrpcWebTransport({
         baseUrl: e2,
@@ -38843,7 +38828,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       me$1.debug(a2);
     }
     t6.deepLink = {
-      $store: new De$1(te$3(s2), "deep-link-context"),
+      $store: new De$2(te$3(s2), "deep-link-context"),
       getDeepLinkData: () => {
         const { data: a2, used: u2 } = t6.deepLink.$store.getValues();
         return { data: a2, used: u2 };
@@ -40862,7 +40847,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
           (r22 == null ? void 0 : r22.handled) && this.invitation.accepted();
         }));
       });
-      this.listeners = /* @__PURE__ */ new Set(), this.listenersCancels = /* @__PURE__ */ new Set(), this.commonStore = new De$1(te$3({}), "common-analytics"), this.connectToSDK(e2), this.heartbeat = Ea({ transport: e2.analyticsTransport, $commonStore: this.commonStore }), this.notifications = new Sa(this), this.polls = new wa(this), this.invitation = new ma(this), this.interactions = new ga(this), this.advertisement = new va(this);
+      this.listeners = /* @__PURE__ */ new Set(), this.listenersCancels = /* @__PURE__ */ new Set(), this.commonStore = new De$2(te$3({}), "common-analytics"), this.connectToSDK(e2), this.heartbeat = Ea({ transport: e2.analyticsTransport, $commonStore: this.commonStore }), this.notifications = new Sa(this), this.polls = new wa(this), this.invitation = new ma(this), this.interactions = new ga(this), this.advertisement = new va(this);
       const { client: r2 } = e2.analyticsTransport.createPromiseClient(AnalyticsService, { method: "send" });
       this.analyticsClient = r2;
     }
@@ -41262,7 +41247,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     }
   }() : Zt, Qe$1 = Qa(), pu$1 = Ha(), Y$3 = Object.getPrototypeOf || (pu$1 ? function(t6) {
     return t6.__proto__;
-  } : null), He$1 = {}, fu$1 = typeof Uint8Array > "u" || !Y$3 ? R$1 : Y$3(Uint8Array), Ue$2 = {
+  } : null), He$1 = {}, fu$1 = typeof Uint8Array > "u" || !Y$3 ? R$1 : Y$3(Uint8Array), Ue$1 = {
     __proto__: null,
     "%AggregateError%": typeof AggregateError > "u" ? R$1 : AggregateError,
     "%Array%": Array,
@@ -41336,7 +41321,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     null.error;
   } catch (t6) {
     var hu$1 = Y$3(Y$3(t6));
-    Ue$2["%Error.prototype%"] = hu$1;
+    Ue$1["%Error.prototype%"] = hu$1;
   }
   var mu = function t3(e2) {
     var r2;
@@ -41350,7 +41335,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       var i2 = t3("%AsyncGenerator%");
       i2 && Y$3 && (r2 = Y$3(i2.prototype));
     }
-    return Ue$2[e2] = r2, r2;
+    return Ue$1[e2] = r2, r2;
   }, Fn = { __proto__: null, "%ArrayBufferPrototype%": ["ArrayBuffer", "prototype"], "%ArrayPrototype%": ["Array", "prototype"], "%ArrayProto_entries%": ["Array", "prototype", "entries"], "%ArrayProto_forEach%": ["Array", "prototype", "forEach"], "%ArrayProto_keys%": ["Array", "prototype", "keys"], "%ArrayProto_values%": ["Array", "prototype", "values"], "%AsyncFunctionPrototype%": ["AsyncFunction", "prototype"], "%AsyncGenerator%": ["AsyncGeneratorFunction", "prototype"], "%AsyncGeneratorPrototype%": ["AsyncGeneratorFunction", "prototype", "prototype"], "%BooleanPrototype%": ["Boolean", "prototype"], "%DataViewPrototype%": ["DataView", "prototype"], "%DatePrototype%": ["Date", "prototype"], "%ErrorPrototype%": ["Error", "prototype"], "%EvalErrorPrototype%": ["EvalError", "prototype"], "%Float32ArrayPrototype%": ["Float32Array", "prototype"], "%Float64ArrayPrototype%": ["Float64Array", "prototype"], "%FunctionPrototype%": ["Function", "prototype"], "%Generator%": ["GeneratorFunction", "prototype"], "%GeneratorPrototype%": ["GeneratorFunction", "prototype", "prototype"], "%Int8ArrayPrototype%": ["Int8Array", "prototype"], "%Int16ArrayPrototype%": ["Int16Array", "prototype"], "%Int32ArrayPrototype%": ["Int32Array", "prototype"], "%JSONParse%": ["JSON", "parse"], "%JSONStringify%": ["JSON", "stringify"], "%MapPrototype%": ["Map", "prototype"], "%NumberPrototype%": ["Number", "prototype"], "%ObjectPrototype%": ["Object", "prototype"], "%ObjProto_toString%": ["Object", "prototype", "toString"], "%ObjProto_valueOf%": ["Object", "prototype", "valueOf"], "%PromisePrototype%": ["Promise", "prototype"], "%PromiseProto_then%": ["Promise", "prototype", "then"], "%Promise_all%": ["Promise", "all"], "%Promise_reject%": ["Promise", "reject"], "%Promise_resolve%": ["Promise", "resolve"], "%RangeErrorPrototype%": ["RangeError", "prototype"], "%ReferenceErrorPrototype%": ["ReferenceError", "prototype"], "%RegExpPrototype%": ["RegExp", "prototype"], "%SetPrototype%": ["Set", "prototype"], "%SharedArrayBufferPrototype%": ["SharedArrayBuffer", "prototype"], "%StringPrototype%": ["String", "prototype"], "%SymbolPrototype%": ["Symbol", "prototype"], "%SyntaxErrorPrototype%": ["SyntaxError", "prototype"], "%TypedArrayPrototype%": ["TypedArray", "prototype"], "%TypeErrorPrototype%": ["TypeError", "prototype"], "%Uint8ArrayPrototype%": ["Uint8Array", "prototype"], "%Uint8ClampedArrayPrototype%": ["Uint8ClampedArray", "prototype"], "%Uint16ArrayPrototype%": ["Uint16Array", "prototype"], "%Uint32ArrayPrototype%": ["Uint32Array", "prototype"], "%URIErrorPrototype%": ["URIError", "prototype"], "%WeakMapPrototype%": ["WeakMap", "prototype"], "%WeakSetPrototype%": ["WeakSet", "prototype"] }, ht = Vr, _t = su$1, gu = ht.call(Function.call, Array.prototype.concat), yu$1 = ht.call(Function.apply, Array.prototype.splice), Un = ht.call(Function.call, String.prototype.replace), Dt = ht.call(Function.call, String.prototype.slice), bu$1 = ht.call(Function.call, RegExp.prototype.exec), vu$1 = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g, Au$1 = /\\(\\)?/g, Su$1 = function(e2) {
     var r2 = Dt(e2, 0, 1), n2 = Dt(e2, -1);
     if (r2 === "%" && n2 !== "%") throw new rt("invalid intrinsic syntax, expected closing `%`");
@@ -41361,8 +41346,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     }), i2;
   }, wu$1 = function(e2, r2) {
     var n2 = e2, i2;
-    if (_t(Fn, n2) && (i2 = Fn[n2], n2 = "%" + i2[0] + "%"), _t(Ue$2, n2)) {
-      var s2 = Ue$2[n2];
+    if (_t(Fn, n2) && (i2 = Fn[n2], n2 = "%" + i2[0] + "%"), _t(Ue$1, n2)) {
+      var s2 = Ue$1[n2];
       if (s2 === He$1 && (s2 = mu(n2)), typeof s2 > "u" && !r2) throw new et("intrinsic " + e2 + " exists, but is not available. Please file an issue!");
       return { alias: i2, name: n2, value: s2 };
     }
@@ -41376,7 +41361,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     for (var l2 = 1, d2 = true; l2 < n2.length; l2 += 1) {
       var p2 = n2[l2], m2 = Dt(p2, 0, 1), b2 = Dt(p2, -1);
       if ((m2 === '"' || m2 === "'" || m2 === "`" || b2 === '"' || b2 === "'" || b2 === "`") && m2 !== b2) throw new rt("property names with quotes must have matching quotes");
-      if ((p2 === "constructor" || !d2) && (u2 = true), i2 += "." + p2, o2 = "%" + i2 + "%", _t(Ue$2, o2)) a2 = Ue$2[o2];
+      if ((p2 === "constructor" || !d2) && (u2 = true), i2 += "." + p2, o2 = "%" + i2 + "%", _t(Ue$1, o2)) a2 = Ue$1[o2];
       else if (a2 != null) {
         if (!(p2 in a2)) {
           if (!r2) throw new et("base intrinsic for " + e2 + " exists, but the property is not available.");
@@ -41386,7 +41371,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
           var g2 = Fe(a2, p2);
           d2 = !!g2, d2 && "get" in g2 && !("originalValue" in g2.get) ? a2 = g2.get : a2 = a2[p2];
         } else d2 = _t(a2, p2), a2 = a2[p2];
-        d2 && !u2 && (Ue$2[o2] = a2);
+        d2 && !u2 && (Ue$1[o2] = a2);
       }
     }
     return a2;
