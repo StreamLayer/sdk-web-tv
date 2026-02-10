@@ -37536,25 +37536,25 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       }
     }
   }
-  var Te = [], Xe$1 = false, _e$1, Et = -1;
+  var Te = [], Je$1 = false, _e$1, Et = -1;
   function ys() {
-    !Xe$1 || !_e$1 || (Xe$1 = false, _e$1.length ? Te = _e$1.concat(Te) : Et = -1, Te.length && si());
+    !Je$1 || !_e$1 || (Je$1 = false, _e$1.length ? Te = _e$1.concat(Te) : Et = -1, Te.length && si());
   }
   function si() {
-    if (!Xe$1) {
+    if (!Je$1) {
       var t6 = ii(ys);
-      Xe$1 = true;
+      Je$1 = true;
       for (var e2 = Te.length; e2; ) {
         for (_e$1 = Te, Te = []; ++Et < e2; ) _e$1 && _e$1[Et].run();
         Et = -1, e2 = Te.length;
       }
-      _e$1 = null, Xe$1 = false, gs(t6);
+      _e$1 = null, Je$1 = false, gs(t6);
     }
   }
   H$3.nextTick = function(t6) {
     var e2 = new Array(arguments.length - 1);
     if (arguments.length > 1) for (var r2 = 1; r2 < arguments.length; r2++) e2[r2 - 1] = arguments[r2];
-    Te.push(new oi(t6, e2)), Te.length === 1 && !Xe$1 && ii(si);
+    Te.push(new oi(t6, e2)), Te.length === 1 && !Je$1 && ii(si);
   };
   function oi(t6, e2) {
     this.fun = t6, this.array = e2;
@@ -38265,13 +38265,13 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         return [];
       }
     } });
-  }, Js = (t6, e2) => {
+  }, Xs = (t6, e2) => {
     const { client: r2, queryKey: n2 } = e2.createPromiseClient(Feed, { method: "get", params: [t6] });
     return e2.nanoquery.createFetcherStore(n2, { fetcher: async (i2, s2, o2) => {
       var _a2;
       return (_a2 = (await r2.get({ eventId: o2 })).data) == null ? void 0 : _a2.attributes;
     }, revalidateInterval: 0, dedupeTime: 1e3 * 60 * 60 });
-  }, Xs = (t6, e2, r2) => {
+  }, Js = (t6, e2, r2) => {
     const { client: n2, queryKey: i2 } = r2.createPromiseClient(Feed, { method: "syncQuestion", params: [t6, e2 ? "true" : ""] });
     return r2.nanoquery.createFetcherStore(i2, {
       fetcher: async (s2, o2, a2, u2) => {
@@ -38539,9 +38539,9 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       __publicField(this, "closeQuestion", (e22) => {
         this.openedQuestionId.set(void 0), e22 && this.notifications.markAsViewed(this.getCurrentSessionId({ prefix: "notification", entity: e22 }));
       });
-      this.transport = e2.transport, this.log = ne$1("gamification-background"), this.storage = new po(), this.slStreamId = e2.stores.slStreamId.getAtomStore(), this.organizationId = e2.stores.organizationSettings.getAtomStore(), this.userId = e2.stores.user.getAtomStore(), this.moderationId = new se$2(K$4(void 0), "moderationId").getStore(), this.interactiveAllowed = new se$2(K$4(Ne$1.DISALLOWED), "interactiveAllowed").getStore(), this.openedQuestionId = new se$2(K$4(void 0), "openedQuestionId").getStore(), this.notifications = e2.notifications, this.moderation = new ce$1(Js(this.slStreamId, e2.transport), "gamification:moderation");
+      this.transport = e2.transport, this.log = ne$1("gamification-background"), this.storage = new po(), this.slStreamId = e2.stores.slStreamId.getAtomStore(), this.organizationId = e2.stores.organizationSettings.getAtomStore(), this.userId = e2.stores.user.getAtomStore(), this.moderationId = new se$2(K$4(void 0), "moderationId").getStore(), this.interactiveAllowed = new se$2(K$4(Ne$1.DISALLOWED), "interactiveAllowed").getStore(), this.openedQuestionId = new se$2(K$4(void 0), "openedQuestionId").getStore(), this.notifications = e2.notifications, this.moderation = new ce$1(Xs(this.slStreamId, e2.transport), "gamification:moderation");
       const r2 = !!e2.sdk.options.get().betPack;
-      this.feedList = new ce$1(ro(this.slStreamId, this.interactiveAllowed, this.userId, this.organizationId, this.storage, r2, e2.transport), "gamification:feedList"), this.betPack = new ce$1(io(this.slStreamId, this.userId, this.organizationId, this.storage, e2.transport), "gamification:betPack"), this.activeQuestionId = Xs(this.slStreamId, r2, e2.transport), this.openedQuestion = so(e2.transport, this.openedQuestionId, this.feedList.getStore()), this.cancels.add(this.openedQuestionId.listen((n2) => {
+      this.feedList = new ce$1(ro(this.slStreamId, this.interactiveAllowed, this.userId, this.organizationId, this.storage, r2, e2.transport), "gamification:feedList"), this.betPack = new ce$1(io(this.slStreamId, this.userId, this.organizationId, this.storage, e2.transport), "gamification:betPack"), this.activeQuestionId = Js(this.slStreamId, r2, e2.transport), this.openedQuestion = so(e2.transport, this.openedQuestionId, this.feedList.getStore()), this.cancels.add(this.openedQuestionId.listen((n2) => {
         this.log.debug({ item: n2 }, "received question"), (n2 == null ? void 0 : n2.questionId) ? (this.log.info("cleanup on close question"), this.questionSubscription !== void 0 && (e2.transport.removeSubscription(this.questionSubscription), this.questionSubscription = void 0), this.questionSubscription = to(n2.questionId, e2.transport), this.questionSubscription.addListener("feed-subscription-opened-question", (i2) => {
           var _a2, _b, _c2;
           const s2 = (_b = (_a2 = i2.data) == null ? void 0 : _a2.attributes) == null ? void 0 : _b.question;
@@ -39859,7 +39859,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       }(u2));
     }), n2;
   }
-  function Jo(t6, e2) {
+  function Xo(t6, e2) {
     const r2 = function() {
       let n2 = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
       const { id: i2, adId: s2, sequence: o2, apiFramework: a2 } = Pr(n2);
@@ -39912,7 +39912,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     return (i2 = e2).value === null && Object.keys(i2.attributes).length === 0 && i2.children.length === 0 ? null : e2;
     var i2;
   }
-  function Xo(t6) {
+  function Jo(t6) {
     return t6.getAttribute("AdID") || t6.getAttribute("adID") || t6.getAttribute("adId") || null;
   }
   const It = { Wrapper: { subElements: ["VASTAdTagURI", "Impression"] }, BlockedAdCategories: { attributes: ["authority"] }, InLine: { subElements: ["AdSystem", "AdTitle", "Impression", "AdServingId", "Creatives"] }, Category: { attributes: ["authority"] }, Pricing: { attributes: ["model", "currency"] }, Verification: { oneOfinLineResources: ["JavaScriptResource", "ExecutableResource"], attributes: ["vendor"] }, UniversalAdId: { attributes: ["idRegistry"] }, JavaScriptResource: { attributes: ["apiFramework", "browserOptional"] }, ExecutableResource: { attributes: ["apiFramework", "type"] }, Tracking: { attributes: ["event"] }, Creatives: { subElements: ["Creative"] }, Creative: { subElements: ["UniversalAdId"] }, Linear: { subElements: ["MediaFiles", "Duration"] }, MediaFiles: { subElements: ["MediaFile"] }, MediaFile: { attributes: ["delivery", "type", "width", "height"] }, Mezzanine: { attributes: ["delivery", "type", "width", "height"] }, NonLinear: { oneOfinLineResources: ["StaticResource", "IFrameResource", "HTMLResource"], attributes: ["width", "height"] }, Companion: { oneOfinLineResources: ["StaticResource", "IFrameResource", "HTMLResource"], attributes: ["width", "height"] }, StaticResource: { attributes: ["creativeType"] }, Icons: { subElements: ["Icon"] }, Icon: { oneOfinLineResources: ["StaticResource", "IFrameResource", "HTMLResource"] } };
@@ -39980,7 +39980,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
           i2.creatives = function(o2) {
             const a2 = [];
             return o2.forEach((u2) => {
-              const c2 = { id: u2.getAttribute("id") || null, adId: Xo(u2), sequence: u2.getAttribute("sequence") || null, apiFramework: u2.getAttribute("apiFramework") || null }, l2 = [];
+              const c2 = { id: u2.getAttribute("id") || null, adId: Jo(u2), sequence: u2.getAttribute("sequence") || null, apiFramework: u2.getAttribute("apiFramework") || null }, l2 = [];
               let d2;
               f$1.childrenByName(u2, "UniversalAdId").forEach((m2) => {
                 const b2 = { idRegistry: m2.getAttribute("idRegistry") || "unknown", value: f$1.parseNodeText(m2) };
@@ -39996,7 +39996,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
                     g2 = Yo(b2, c2);
                     break;
                   case "NonLinearAds":
-                    g2 = Jo(b2, c2);
+                    g2 = Xo(b2, c2);
                     break;
                   case "CompanionAds":
                     g2 = zo(b2, c2);
@@ -40555,6 +40555,10 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         const n2 = this.analytics.commonStore.getValues();
         this.analytics.write("games", { common: { ...n2, kind: Kind.EXTERNAL_AD_RENDERED, topicId: e22, parentTopicId: r2, topicType: TopicType.EXPOSED_PAUSED_AD }, pollOpenedFrom: PollOpenedFrom.UNSET });
       });
+      __publicField(this, "exposedPauseAdNavigated", ({ id: e22, parentId: r2 }) => {
+        const n2 = this.analytics.commonStore.getValues();
+        this.analytics.write("games", { common: { ...n2, kind: Kind.AD_INTERACTION_BANNER_NAVIGATED, topicId: e22, parentTopicId: r2, topicType: TopicType.EXPOSED_PAUSED_AD }, pollOpenedFrom: PollOpenedFrom.UNSET });
+      });
       __publicField(this, "exposedPauseAdLoad", ({ id: e22, parentId: r2 }, n2) => {
         const i2 = this.analytics.commonStore.getValues();
         this.analytics.write("games", { common: { ...i2, kind: n2 ? Kind.EXTERNAL_AD_LOADED : Kind.EXTERNAL_AD_REQUESTED, topicId: e22, parentTopicId: r2, topicType: TopicType.EXPOSED_PAUSED_AD }, pollOpenedFrom: PollOpenedFrom.UNSET });
@@ -40618,6 +40622,9 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
                   break;
                 case "rendered":
                   this.exposedPauseAdOpened(i2);
+                  break;
+                case "navigated":
+                  this.exposedPauseAdNavigated(i2);
                   break;
               }
             }
@@ -41194,13 +41201,13 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     return xa() && !!Symbol.toStringTag;
   }, Ba = Error, Ma = EvalError, $a = RangeError, qa = ReferenceError, Vi = SyntaxError, Qt = TypeError, ja = URIError, _n = typeof Symbol < "u" && Symbol, Ga = Ui, Qa = function() {
     return typeof _n != "function" || typeof Symbol != "function" || typeof _n("foo") != "symbol" || typeof Symbol("bar") != "symbol" ? false : Ga();
-  }, Jt = { __proto__: null, foo: {} }, Wa = Object, Ha = function() {
-    return { __proto__: Jt }.foo === Jt.foo && !(Jt instanceof Wa);
-  }, Ka = "Function.prototype.bind called on incompatible ", za = Object.prototype.toString, Ya = Math.max, Ja = "[object Function]", Dn = function(e2, r2) {
+  }, Xt = { __proto__: null, foo: {} }, Wa = Object, Ha = function() {
+    return { __proto__: Xt }.foo === Xt.foo && !(Xt instanceof Wa);
+  }, Ka = "Function.prototype.bind called on incompatible ", za = Object.prototype.toString, Ya = Math.max, Xa = "[object Function]", Dn = function(e2, r2) {
     for (var n2 = [], i2 = 0; i2 < e2.length; i2 += 1) n2[i2] = e2[i2];
     for (var s2 = 0; s2 < r2.length; s2 += 1) n2[s2 + e2.length] = r2[s2];
     return n2;
-  }, Xa = function(e2, r2) {
+  }, Ja = function(e2, r2) {
     for (var n2 = [], i2 = r2, s2 = 0; i2 < e2.length; i2 += 1, s2 += 1) n2[s2] = e2[i2];
     return n2;
   }, Za = function(t6, e2) {
@@ -41208,8 +41215,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     return r2;
   }, eu$1 = function(e2) {
     var r2 = this;
-    if (typeof r2 != "function" || za.apply(r2) !== Ja) throw new TypeError(Ka + r2);
-    for (var n2 = Xa(arguments, 1), i2, s2 = function() {
+    if (typeof r2 != "function" || za.apply(r2) !== Xa) throw new TypeError(Ka + r2);
+    for (var n2 = Ja(arguments, 1), i2, s2 = function() {
       if (this instanceof i2) {
         var l2 = r2.apply(this, Dn(n2, arguments));
         return Object(l2) === l2 ? l2 : this;
@@ -41222,7 +41229,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       c2.prototype = r2.prototype, i2.prototype = new c2(), c2.prototype = null;
     }
     return i2;
-  }, tu$1 = eu$1, Vr = Function.prototype.bind || tu$1, ru$1 = Function.prototype.call, nu$1 = Object.prototype.hasOwnProperty, iu$1 = Vr, su$1 = iu$1.call(ru$1, nu$1), R$1, ou$1 = Ba, au$1 = Ma, uu$1 = $a, cu$1 = qa, rt = Vi, et = Qt, lu$1 = ja, xi = Function, Xt = function(t6) {
+  }, tu$1 = eu$1, Vr = Function.prototype.bind || tu$1, ru$1 = Function.prototype.call, nu$1 = Object.prototype.hasOwnProperty, iu$1 = Vr, su$1 = iu$1.call(ru$1, nu$1), R$1, ou$1 = Ba, au$1 = Ma, uu$1 = $a, cu$1 = qa, rt = Vi, et = Qt, lu$1 = ja, xi = Function, Jt = function(t6) {
     try {
       return xi('"use strict"; return (' + t6 + ").constructor;")();
     } catch {
@@ -41325,9 +41332,9 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
   }
   var mu = function t3(e2) {
     var r2;
-    if (e2 === "%AsyncFunction%") r2 = Xt("async function () {}");
-    else if (e2 === "%GeneratorFunction%") r2 = Xt("function* () {}");
-    else if (e2 === "%AsyncGeneratorFunction%") r2 = Xt("async function* () {}");
+    if (e2 === "%AsyncFunction%") r2 = Jt("async function () {}");
+    else if (e2 === "%GeneratorFunction%") r2 = Jt("function* () {}");
+    else if (e2 === "%AsyncGeneratorFunction%") r2 = Jt("async function* () {}");
     else if (e2 === "%AsyncGenerator%") {
       var n2 = t3("%AsyncGeneratorFunction%");
       n2 && (r2 = n2.prototype);
@@ -41479,17 +41486,17 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       rr$1 = n2 ? tr$1(n2) : false;
     }
     return tr$1(e2) === rr$1;
-  }, Qi = Function.prototype.toString, Je$1 = typeof Reflect == "object" && Reflect !== null && Reflect.apply, wr, Nt;
-  if (typeof Je$1 == "function" && typeof Object.defineProperty == "function") try {
+  }, Qi = Function.prototype.toString, Xe$1 = typeof Reflect == "object" && Reflect !== null && Reflect.apply, wr, Nt;
+  if (typeof Xe$1 == "function" && typeof Object.defineProperty == "function") try {
     wr = Object.defineProperty({}, "length", { get: function() {
       throw Nt;
-    } }), Nt = {}, Je$1(function() {
+    } }), Nt = {}, Xe$1(function() {
       throw 42;
     }, null, wr);
   } catch (t6) {
-    t6 !== Nt && (Je$1 = null);
+    t6 !== Nt && (Xe$1 = null);
   }
-  else Je$1 = null;
+  else Xe$1 = null;
   var $u$1 = /^\s*class\b/, Er = function(e2) {
     try {
       var r2 = Qi.call(e2);
@@ -41517,11 +41524,11 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return false;
     });
   }
-  var Ju$1 = Je$1 ? function(e2) {
+  var Xu$1 = Xe$1 ? function(e2) {
     if (Tr(e2)) return true;
     if (!e2 || typeof e2 != "function" && typeof e2 != "object") return false;
     try {
-      Je$1(e2, null, wr);
+      Xe$1(e2, null, wr);
     } catch (r2) {
       if (r2 !== Nt) return false;
     }
@@ -41533,14 +41540,14 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     if (Er(e2)) return false;
     var r2 = Lt.call(e2);
     return r2 !== ju$1 && r2 !== Gu$1 && !/^\[object HTML/.test(r2) ? false : nr(e2);
-  }, Xu$1 = Ju$1, Zu$1 = Object.prototype.toString, Wi = Object.prototype.hasOwnProperty, ec = function(e2, r2, n2) {
+  }, Ju$1 = Xu$1, Zu$1 = Object.prototype.toString, Wi = Object.prototype.hasOwnProperty, ec = function(e2, r2, n2) {
     for (var i2 = 0, s2 = e2.length; i2 < s2; i2++) Wi.call(e2, i2) && (n2 == null ? r2(e2[i2], i2, e2) : r2.call(n2, e2[i2], i2, e2));
   }, tc = function(e2, r2, n2) {
     for (var i2 = 0, s2 = e2.length; i2 < s2; i2++) n2 == null ? r2(e2.charAt(i2), i2, e2) : r2.call(n2, e2.charAt(i2), i2, e2);
   }, rc = function(e2, r2, n2) {
     for (var i2 in e2) Wi.call(e2, i2) && (n2 == null ? r2(e2[i2], i2, e2) : r2.call(n2, e2[i2], i2, e2));
   }, nc = function(e2, r2, n2) {
-    if (!Xu$1(r2)) throw new TypeError("iterator must be a function");
+    if (!Ju$1(r2)) throw new TypeError("iterator must be a function");
     var i2;
     arguments.length >= 3 && (i2 = n2), Zu$1.call(e2) === "[object Array]" ? ec(e2, r2, i2) : typeof e2 == "string" ? tc(e2, r2, i2) : rc(e2, r2, i2);
   }, Hi = nc, ic = ["Float32Array", "Float64Array", "Int8Array", "Int16Array", "Int32Array", "Uint8Array", "Uint8ClampedArray", "Uint16Array", "Uint32Array", "BigInt64Array", "BigUint64Array"], ir = ic, sc = typeof globalThis > "u" ? _r : globalThis, Ki = function() {
@@ -41770,10 +41777,10 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return typeof A2 > "u" ? false : (typeof O2.working > "u" && (O2.working = O2(new A2())), O2.working ? O2(v2) : v2 instanceof A2);
     }
     t6.isSharedArrayBuffer = U2;
-    function V2(v2) {
+    function x2(v2) {
       return u2(v2) === "[object AsyncFunction]";
     }
-    t6.isAsyncFunction = V2;
+    t6.isAsyncFunction = x2;
     function C2(v2) {
       return u2(v2) === "[object Map Iterator]";
     }
@@ -41847,7 +41854,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         for (var y3 = [], A2 = 0; A2 < arguments.length; A2++) y3.push(o2(arguments[A2]));
         return y3.join(" ");
       }
-      for (var A2 = 1, O2 = arguments, U2 = O2.length, V2 = String(h2).replace(r2, function(D2) {
+      for (var A2 = 1, O2 = arguments, U2 = O2.length, x2 = String(h2).replace(r2, function(D2) {
         if (D2 === "%%") return "%";
         if (A2 >= U2) return D2;
         switch (D2) {
@@ -41864,8 +41871,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
           default:
             return D2;
         }
-      }), C2 = O2[A2]; A2 < U2; C2 = O2[++A2]) S2(C2) || !de2(C2) ? V2 += " " + C2 : V2 += " " + o2(C2);
-      return V2;
+      }), C2 = O2[A2]; A2 < U2; C2 = O2[++A2]) S2(C2) || !de2(C2) ? x2 += " " + C2 : x2 += " " + o2(C2);
+      return x2;
     }, t6.deprecate = function(h2, y3) {
       if (typeof k$a < "u" && k$a.noDeprecation === true) return h2;
       if (typeof k$a > "u") return function() {
@@ -41934,9 +41941,9 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       }
       var U2 = d2(h2, y3);
       if (U2) return U2;
-      var V2 = Object.keys(y3), C2 = c2(V2);
-      if (h2.showHidden && (V2 = Object.getOwnPropertyNames(y3)), Ce2(y3) && (V2.indexOf("message") >= 0 || V2.indexOf("description") >= 0)) return p2(y3);
-      if (V2.length === 0) {
+      var x2 = Object.keys(y3), C2 = c2(x2);
+      if (h2.showHidden && (x2 = Object.getOwnPropertyNames(y3)), Ce2(y3) && (x2.indexOf("message") >= 0 || x2.indexOf("description") >= 0)) return p2(y3);
+      if (x2.length === 0) {
         if (ge2(y3)) {
           var D2 = y3.name ? ": " + y3.name : "";
           return h2.stylize("[Function" + D2 + "]", "special");
@@ -41950,11 +41957,11 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         var yt2 = y3.name ? ": " + y3.name : "";
         $2 = " [Function" + yt2 + "]";
       }
-      if (le2(y3) && ($2 = " " + RegExp.prototype.toString.call(y3)), xe2(y3) && ($2 = " " + Date.prototype.toUTCString.call(y3)), Ce2(y3) && ($2 = " " + p2(y3)), V2.length === 0 && (!ee2 || y3.length == 0)) return Re2[0] + $2 + Re2[1];
+      if (le2(y3) && ($2 = " " + RegExp.prototype.toString.call(y3)), xe2(y3) && ($2 = " " + Date.prototype.toUTCString.call(y3)), Ce2(y3) && ($2 = " " + p2(y3)), x2.length === 0 && (!ee2 || y3.length == 0)) return Re2[0] + $2 + Re2[1];
       if (A2 < 0) return le2(y3) ? h2.stylize(RegExp.prototype.toString.call(y3), "regexp") : h2.stylize("[Object]", "special");
       h2.seen.push(y3);
       var qe2;
-      return ee2 ? qe2 = m2(h2, y3, A2, C2, V2) : qe2 = V2.map(function(bt) {
+      return ee2 ? qe2 = m2(h2, y3, A2, C2, x2) : qe2 = x2.map(function(bt) {
         return b2(h2, y3, A2, C2, bt, ee2);
       }), h2.seen.pop(), g2(qe2, $2, Re2);
     }
@@ -41972,15 +41979,15 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return "[" + Error.prototype.toString.call(h2) + "]";
     }
     function m2(h2, y3, A2, O2, U2) {
-      for (var V2 = [], C2 = 0, D2 = y3.length; C2 < D2; ++C2) Me2(y3, String(C2)) ? V2.push(b2(h2, y3, A2, O2, String(C2), true)) : V2.push("");
+      for (var x2 = [], C2 = 0, D2 = y3.length; C2 < D2; ++C2) Me2(y3, String(C2)) ? x2.push(b2(h2, y3, A2, O2, String(C2), true)) : x2.push("");
       return U2.forEach(function($2) {
-        $2.match(/^\d+$/) || V2.push(b2(h2, y3, A2, O2, $2, true));
-      }), V2;
+        $2.match(/^\d+$/) || x2.push(b2(h2, y3, A2, O2, $2, true));
+      }), x2;
     }
-    function b2(h2, y3, A2, O2, U2, V2) {
+    function b2(h2, y3, A2, O2, U2, x2) {
       var C2, D2, $2;
       if ($2 = Object.getOwnPropertyDescriptor(y3, U2) || { value: y3[U2] }, $2.get ? $2.set ? D2 = h2.stylize("[Getter/Setter]", "special") : D2 = h2.stylize("[Getter]", "special") : $2.set && (D2 = h2.stylize("[Setter]", "special")), Me2(O2, U2) || (C2 = "[" + U2 + "]"), D2 || (h2.seen.indexOf($2.value) < 0 ? (S2(A2) ? D2 = l2(h2, $2.value, null) : D2 = l2(h2, $2.value, A2 - 1), D2.indexOf(`
-`) > -1 && (V2 ? D2 = D2.split(`
+`) > -1 && (x2 ? D2 = D2.split(`
 `).map(function(ee2) {
         return "  " + ee2;
       }).join(`
@@ -41990,15 +41997,15 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         return "   " + ee2;
       }).join(`
 `))) : D2 = h2.stylize("[Circular]", "special")), P2(C2)) {
-        if (V2 && U2.match(/^\d+$/)) return D2;
+        if (x2 && U2.match(/^\d+$/)) return D2;
         C2 = JSON.stringify("" + U2), C2.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/) ? (C2 = C2.slice(1, -1), C2 = h2.stylize(C2, "name")) : (C2 = C2.replace(/'/g, "\\'").replace(/\\"/g, '"').replace(/(^"|"$)/g, "'"), C2 = h2.stylize(C2, "string"));
       }
       return C2 + ": " + D2;
     }
     function g2(h2, y3, A2) {
-      var O2 = h2.reduce(function(U2, V2) {
-        return V2.indexOf(`
-`) >= 0, U2 + V2.replace(/\u001b\[\d\d?m/g, "").length + 1;
+      var O2 = h2.reduce(function(U2, x2) {
+        return x2.indexOf(`
+`) >= 0, U2 + x2.replace(/\u001b\[\d\d?m/g, "").length + 1;
       }, 0);
       return O2 > 60 ? A2[0] + (y3 === "" ? "" : y3 + `
  `) + " " + h2.join(`,
@@ -42092,7 +42099,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         return Object.defineProperty(A2, ye2, { value: A2, enumerable: false, writable: false, configurable: true }), A2;
       }
       function A2() {
-        for (var O2, U2, V2 = new Promise(function($2, ee2) {
+        for (var O2, U2, x2 = new Promise(function($2, ee2) {
           O2 = $2, U2 = ee2;
         }), C2 = [], D2 = 0; D2 < arguments.length; D2++) C2.push(arguments[D2]);
         C2.push(function($2, ee2) {
@@ -42103,7 +42110,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         } catch ($2) {
           U2($2);
         }
-        return V2;
+        return x2;
       }
       return Object.setPrototypeOf(A2, Object.getPrototypeOf(y3)), ye2 && Object.defineProperty(A2, ye2, { value: A2, enumerable: false, writable: false, configurable: true }), Object.defineProperties(A2, e2(y3));
     }, t6.promisify.custom = ye2;
@@ -42120,8 +42127,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
         for (var A2 = [], O2 = 0; O2 < arguments.length; O2++) A2.push(arguments[O2]);
         var U2 = A2.pop();
         if (typeof U2 != "function") throw new TypeError("The last argument must be of type Function");
-        var V2 = this, C2 = function() {
-          return U2.apply(V2, arguments);
+        var x2 = this, C2 = function() {
+          return U2.apply(x2, arguments);
         };
         h2.apply(this, A2).then(function(D2) {
           k$a.nextTick(C2.bind(null, null, D2));
@@ -42145,7 +42152,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return `${this.name} [${this.code}]: ${this.message}`;
     }, wc(n2, r2), n2;
   }
-  var Ji = { createError: Pe$1, AVV_ERR_EXPOSE_ALREADY_DEFINED: Pe$1("AVV_ERR_EXPOSE_ALREADY_DEFINED", "'%s' () is already defined, specify an expose option"), AVV_ERR_CALLBACK_NOT_FN: Pe$1("AVV_ERR_CALLBACK_NOT_FN", "Callback for '%s' hook is not a function. Received: '%s'"), AVV_ERR_PLUGIN_NOT_VALID: Pe$1("AVV_ERR_PLUGIN_NOT_VALID", "Plugin must be a function or a promise. Received: '%s'"), AVV_ERR_ROOT_PLG_BOOTED: Pe$1("AVV_ERR_PLUGIN_NOT_VALID", "Root plugin has already booted"), AVV_ERR_PARENT_PLG_LOADED: Pe$1("AVV_ERR_PARENT_PLG_LOADED", "Impossible to load '%s' plugin because the parent '%s' was already loaded"), AVV_ERR_READY_TIMEOUT: Pe$1("AVV_ERR_READY_TIMEOUT", "Plugin did not start in time: '%s'. You may have forgotten to call 'done' function or to resolve a Promise") }, Ec = function t4(e2, r2, n2) {
+  var Xi = { createError: Pe$1, AVV_ERR_EXPOSE_ALREADY_DEFINED: Pe$1("AVV_ERR_EXPOSE_ALREADY_DEFINED", "'%s' () is already defined, specify an expose option"), AVV_ERR_CALLBACK_NOT_FN: Pe$1("AVV_ERR_CALLBACK_NOT_FN", "Callback for '%s' hook is not a function. Received: '%s'"), AVV_ERR_PLUGIN_NOT_VALID: Pe$1("AVV_ERR_PLUGIN_NOT_VALID", "Plugin must be a function or a promise. Received: '%s'"), AVV_ERR_ROOT_PLG_BOOTED: Pe$1("AVV_ERR_PLUGIN_NOT_VALID", "Root plugin has already booted"), AVV_ERR_PARENT_PLG_LOADED: Pe$1("AVV_ERR_PARENT_PLG_LOADED", "Impossible to load '%s' plugin because the parent '%s' was already loaded"), AVV_ERR_READY_TIMEOUT: Pe$1("AVV_ERR_READY_TIMEOUT", "Plugin did not start in time: '%s'. You may have forgotten to call 'done' function or to resolve a Promise") }, Ec = function t4(e2, r2, n2) {
     r2 === void 0 && (r2 = ""), n2 || (n2 = {});
     var i2 = function(u2) {
       var c2 = { "│": "|", "└": "`", "├": "+", "─": "-", "┬": "-" };
@@ -42206,10 +42213,10 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return Tc(r2);
     }
   };
-  var Oc = Ic, Qr = { exports: {} }, Nr = { exports: {} }, cr, Jn;
+  var Oc = Ic, Qr = { exports: {} }, Nr = { exports: {} }, cr, Xn;
   function kc() {
-    if (Jn) return cr;
-    Jn = 1;
+    if (Xn) return cr;
+    Xn = 1;
     var t6 = 1e3, e2 = t6 * 60, r2 = e2 * 60, n2 = r2 * 24, i2 = n2 * 7, s2 = n2 * 365.25;
     cr = function(l2, d2) {
       d2 = d2 || {};
@@ -42407,8 +42414,8 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       }
     };
   })(Nr, Nr.exports);
-  var Xi = Nr.exports;
-  const Cc = Ii, Rc = Di.EventEmitter, Pc = jt.inherits, J$5 = Xi("avvio"), { AVV_ERR_READY_TIMEOUT: _c } = Ji, lr = Symbol.for("plugin-meta");
+  var Ji = Nr.exports;
+  const Cc = Ii, Rc = Di.EventEmitter, Pc = jt.inherits, X$4 = Ji("avvio"), { AVV_ERR_READY_TIMEOUT: _c } = Xi, lr = Symbol.for("plugin-meta");
   function Dc(t6, e2) {
     return t6[lr] && t6[lr].name ? t6[lr].name : typeof e2 < "u" && typeof e2 != "function" && e2.name ? e2.name : t6.name ? t6.name : t6.toString().split(`
 `).slice(0, 2).map((r2) => r2.trim()).join(" -- ");
@@ -42428,64 +42435,64 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     let n2 = false;
     const i2 = this.name;
     if (this.parent._error && !this.isAfter) {
-      J$5("skipping loading of plugin as parent errored and it is not an after", i2), k$a.nextTick(e2);
+      X$4("skipping loading of plugin as parent errored and it is not an after", i2), k$a.nextTick(e2);
       return;
     }
     if (this.isAfter) this.server = t6;
     else try {
       this.server = this.parent.override(t6, r2, this.opts);
     } catch (u2) {
-      return J$5("override errored", i2), e2(u2);
+      return X$4("override errored", i2), e2(u2);
     }
-    this.opts = typeof this.opts == "function" ? this.opts(this.server) : this.opts, J$5("exec", i2);
+    this.opts = typeof this.opts == "function" ? this.opts(this.server) : this.opts, X$4("exec", i2);
     let s2;
     const o2 = (u2) => {
       if (n2) {
-        J$5("loading complete", i2);
+        X$4("loading complete", i2);
         return;
       }
-      this._error = u2, J$5(u2 ? "exec errored" : "exec completed", i2), n2 = true, s2 && clearTimeout(s2), e2(u2);
+      this._error = u2, X$4(u2 ? "exec errored" : "exec completed", i2), n2 = true, s2 && clearTimeout(s2), e2(u2);
     };
-    this.timeout > 0 && (J$5("setting up timeout", i2, this.timeout), s2 = setTimeout(function() {
-      J$5("timed out", i2), s2 = null;
+    this.timeout > 0 && (X$4("setting up timeout", i2, this.timeout), s2 = setTimeout(function() {
+      X$4("timed out", i2), s2 = null;
       const u2 = new _c(i2);
       u2.fn = r2, o2(u2);
     }, this.timeout)), this.started = true, this.emit("start", this.server ? this.server.name : null, this.name, Date.now());
     const a2 = r2(this.server, this.opts, o2);
-    a2 && typeof a2.then == "function" && (J$5("exec: resolving promise", i2), a2.then(() => k$a.nextTick(o2), (u2) => k$a.nextTick(o2, u2)));
+    a2 && typeof a2.then == "function" && (X$4("exec: resolving promise", i2), a2.then(() => k$a.nextTick(o2), (u2) => k$a.nextTick(o2, u2)));
   };
   st.prototype.loadedSoFar = function() {
     if (this.loaded) return Promise.resolve();
     const t6 = () => {
       this.server.after((r2, n2) => {
-        this._error = r2, this.q.pause(), r2 ? (J$5("rejecting promise", this.name, r2), this._promise.reject(r2)) : (J$5("resolving promise", this.name), this._promise.resolve()), this._promise = null, k$a.nextTick(n2, r2);
+        this._error = r2, this.q.pause(), r2 ? (X$4("rejecting promise", this.name, r2), this._promise.reject(r2)) : (X$4("resolving promise", this.name), this._promise.resolve()), this._promise = null, k$a.nextTick(n2, r2);
       }), this.q.resume();
     };
     let e2;
     return this._promise ? e2 = Promise.resolve() : (this._promise = Fc(), e2 = this._promise.promise, this.server ? t6() : this.on("start", t6)), e2;
   };
   st.prototype.enqueue = function(t6, e2) {
-    J$5("enqueue", this.name, t6.name), this.emit("enqueue", this.server ? this.server.name : null, this.name, Date.now()), this.q.push(t6, e2);
+    X$4("enqueue", this.name, t6.name), this.emit("enqueue", this.server ? this.server.name : null, this.name, Date.now()), this.q.push(t6, e2);
   };
   st.prototype.finish = function(t6, e2) {
-    J$5("finish", this.name, t6);
+    X$4("finish", this.name, t6);
     const r2 = () => {
-      this.loaded || (J$5("loaded", this.name), this.emit("loaded", this.server ? this.server.name : null, this.name, Date.now()), this.loaded = true, e2(t6));
+      this.loaded || (X$4("loaded", this.name), this.emit("loaded", this.server ? this.server.name : null, this.name, Date.now()), this.loaded = true, e2(t6));
     };
     if (t6) {
       this._promise && (this._promise.reject(t6), this._promise = null), r2();
       return;
     }
     const n2 = () => {
-      if (J$5("check", this.name, this.q.length(), this.q.running(), this._promise), this.q.length() === 0 && this.q.running() === 0) {
+      if (X$4("check", this.name, this.q.length(), this.q.running(), this._promise), this.q.length() === 0 && this.q.running() === 0) {
         if (this._promise) {
           const i2 = () => {
-            J$5("wrap"), queueMicrotask(n2);
+            X$4("wrap"), queueMicrotask(n2);
           };
           this._promise.resolve(), this._promise.promise.then(i2, i2), this._promise = null;
         } else r2();
-      } else J$5("delayed", this.name), this.q.drain = () => {
-        J$5("drain", this.name), this.q.drain = Vc, queueMicrotask(n2);
+      } else X$4("delayed", this.name), this.q.drain = () => {
+        X$4("drain", this.name), this.q.drain = Vc, queueMicrotask(n2);
       };
     };
     queueMicrotask(n2), this.q.resume();
@@ -42513,7 +42520,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
   Qr.exports = st;
   Qr.exports.loadPlugin = Wr;
   var xc = Qr.exports;
-  const Xn = Ii, Bc = Di.EventEmitter, Mc = jt.inherits, { AVV_ERR_EXPOSE_ALREADY_DEFINED: dr, AVV_ERR_CALLBACK_NOT_FN: ct, AVV_ERR_PLUGIN_NOT_VALID: $c, AVV_ERR_ROOT_PLG_BOOTED: qc, AVV_ERR_READY_TIMEOUT: jc } = Ji, Gc = Oc, Lr = xc, nt = Xi("avvio"), Bt = Symbol("kAvvio"), pr = Symbol("kThenifyDoNotWrap");
+  const Jn = Ii, Bc = Di.EventEmitter, Mc = jt.inherits, { AVV_ERR_EXPOSE_ALREADY_DEFINED: dr, AVV_ERR_CALLBACK_NOT_FN: ct, AVV_ERR_PLUGIN_NOT_VALID: $c, AVV_ERR_ROOT_PLG_BOOTED: qc, AVV_ERR_READY_TIMEOUT: jc } = Xi, Gc = Oc, Lr = xc, nt = Ji("avvio"), Bt = Symbol("kAvvio"), pr = Symbol("kThenifyDoNotWrap");
   function Qc(t6, e2, r2) {
     const n2 = e2.expose || {}, i2 = n2.use || "use", s2 = n2.after || "after", o2 = n2.ready || "ready", a2 = n2.onClose || "onClose", u2 = n2.close || "close";
     if (t6[i2]) throw new dr(i2);
@@ -42534,14 +42541,14 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       return c2 ? (r2.close(fr(c2, this)), this) : r2.close();
     };
   }
-  function X$4(t6, e2, r2) {
-    if (typeof t6 == "function" && arguments.length === 1 && (r2 = t6, e2 = {}, t6 = null), typeof e2 == "function" && (r2 = e2, e2 = {}), e2 = e2 || {}, !(this instanceof X$4)) {
-      const n2 = new X$4(t6, e2, r2);
+  function J$5(t6, e2, r2) {
+    if (typeof t6 == "function" && arguments.length === 1 && (r2 = t6, e2 = {}, t6 = null), typeof e2 == "function" && (r2 = e2, e2 = {}), e2 = e2 || {}, !(this instanceof J$5)) {
+      const n2 = new J$5(t6, e2, r2);
       return t6 && Qc(t6, e2, n2), n2;
     }
-    e2.autostart !== false && (e2.autostart = true), t6 = t6 || this, this._timeout = Number(e2.timeout) || 0, this._server = t6, this._current = [], this._error = null, this._isOnCloseHandlerKey = Symbol("isOnCloseHandler"), this._lastUsed = null, this.setMaxListeners(0), r2 && this.once("start", r2), this.started = false, this.booted = false, this.pluginTree = new Gc(), this._readyQ = Xn(this, es, 1), this._readyQ.pause(), this._readyQ.drain = () => {
+    e2.autostart !== false && (e2.autostart = true), t6 = t6 || this, this._timeout = Number(e2.timeout) || 0, this._server = t6, this._current = [], this._error = null, this._isOnCloseHandlerKey = Symbol("isOnCloseHandler"), this._lastUsed = null, this.setMaxListeners(0), r2 && this.once("start", r2), this.started = false, this.booted = false, this.pluginTree = new Gc(), this._readyQ = Jn(this, es, 1), this._readyQ.pause(), this._readyQ.drain = () => {
       this.emit("start"), this._readyQ.drain = Zn;
-    }, this._closeQ = Xn(this, zc, 1), this._closeQ.pause(), this._closeQ.drain = () => {
+    }, this._closeQ = Jn(this, zc, 1), this._closeQ.pause(), this._closeQ.drain = () => {
       this.emit("close"), this._closeQ.drain = Zn;
     }, this._doStart = null, this._root = new Lr(this, Wc.bind(this), e2, false, 0), this._root.once("start", (n2, i2, s2) => {
       const o2 = this.pluginTree.start(null, i2, s2);
@@ -42564,27 +42571,27 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
   function Wc(t6, e2, r2) {
     this._doStart = r2, e2.autostart && this.start();
   }
-  Mc(X$4, Bc);
-  X$4.prototype.start = function() {
+  Mc(J$5, Bc);
+  J$5.prototype.start = function() {
     return this.started = true, k$a.nextTick(this._doStart), this;
   };
-  X$4.prototype.override = function(t6, e2, r2) {
+  J$5.prototype.override = function(t6, e2, r2) {
     return t6;
   };
   function Hc(t6) {
     if (t6 && typeof t6 == "object" && typeof t6.default == "function" && (t6 = t6.default), !(t6 && (typeof t6 == "function" || typeof t6.then == "function"))) throw new $c(typeof t6);
     return t6;
   }
-  X$4.prototype[Bt] = true;
-  X$4.prototype.use = function(t6, e2) {
+  J$5.prototype[Bt] = true;
+  J$5.prototype.use = function(t6, e2) {
     return this._lastUsed = this._addPlugin(t6, e2, false), this;
   };
-  X$4.prototype._loadRegistered = function() {
+  J$5.prototype._loadRegistered = function() {
     const t6 = this._current[0];
     return !this.started && !this.booted && k$a.nextTick(() => this._root.q.resume()), t6 ? t6.loadedSoFar() : Promise.resolve();
   };
-  Object.defineProperty(X$4.prototype, "then", { get: Zi });
-  X$4.prototype._addPlugin = function(t6, e2, r2) {
+  Object.defineProperty(J$5.prototype, "then", { get: Zi });
+  J$5.prototype._addPlugin = function(t6, e2, r2) {
     if (t6 = Hc(t6), e2 = e2 || {}, this.booted) throw new qc();
     const n2 = this._current[0], i2 = new Lr(this, t6, e2, r2);
     if (i2.once("start", (s2, o2, a2) => {
@@ -42597,7 +42604,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       s2 && (this._error = s2);
     }), i2;
   };
-  X$4.prototype.after = function(t6) {
+  J$5.prototype.after = function(t6) {
     if (!t6) return this._loadRegistered();
     this._addPlugin(e2.bind(this), {}, true);
     function e2(r2, n2, i2) {
@@ -42605,7 +42612,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     }
     return this;
   };
-  X$4.prototype.onClose = function(t6) {
+  J$5.prototype.onClose = function(t6) {
     if (typeof t6 != "function") throw new Error("not a function");
     t6[this._isOnCloseHandlerKey] = true, this._closeQ.unshift(t6, e2.bind(this));
     function e2(r2) {
@@ -42613,7 +42620,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     }
     return this;
   };
-  X$4.prototype.close = function(t6) {
+  J$5.prototype.close = function(t6) {
     let e2;
     if (t6) {
       if (typeof t6 != "function") throw new ct("close", typeof t6);
@@ -42627,7 +42634,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       this._error = null, this._closeQ.push(t6), k$a.nextTick(this._closeQ.resume.bind(this._closeQ));
     }), e2;
   };
-  X$4.prototype.ready = function(t6) {
+  J$5.prototype.ready = function(t6) {
     if (t6) {
       if (typeof t6 != "function") throw new ct("ready", typeof t6);
       this._readyQ.push(t6), queueMicrotask(this.start.bind(this));
@@ -42641,10 +42648,10 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       }
     });
   };
-  X$4.prototype.prettyPrint = function() {
+  J$5.prototype.prettyPrint = function() {
     return this.pluginTree.prittyPrint();
   };
-  X$4.prototype.toJSON = function() {
+  J$5.prototype.toJSON = function() {
     return this.pluginTree.toJSON();
   };
   function Zn() {
@@ -42714,12 +42721,12 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
       }, i2) : k$a.nextTick(i2)) : t6.length === 2 ? t6(n2, i2) : t6(n2, this, i2) : k$a.nextTick(i2);
     }
   }
-  Dr.exports = X$4;
+  Dr.exports = J$5;
   Dr.exports.express = function(t6) {
-    return X$4(t6, { expose: { use: "load" } });
+    return J$5(t6, { expose: { use: "load" } });
   };
-  var Jc = Dr.exports;
-  const Xc = /* @__PURE__ */ Oa(Jc);
+  var Xc = Dr.exports;
+  const Jc = /* @__PURE__ */ Oa(Xc);
   (function() {
     if (window.requestAnimationFrame && window.cancelAnimationFrame) return;
     const t6 = ["webkit", "moz", "ms", "o"];
@@ -42736,7 +42743,7 @@ Please stay tuned for the next question.` : r2 === QuestionType.PREDICTION ? "St
     }
   })();
   function Sl(t6, e2 = true, r2 = true, n2 = { friendsTab: "enabled" }) {
-    const i2 = e2 ? "https://grpc-sdk.streamlayer.io:443" : "https://grpc-sdk.next.streamlayer.io:443", s2 = e2 ? "https://grpc.streamlayer.io:443" : "https://grpc.next.streamlayer.io:443", o2 = Xc(/* @__PURE__ */ Object.create({}), { autostart: false });
+    const i2 = e2 ? "https://grpc-sdk.streamlayer.io:443" : "https://grpc-sdk.next.streamlayer.io:443", s2 = e2 ? "https://grpc.streamlayer.io:443" : "https://grpc.next.streamlayer.io:443", o2 = Jc(/* @__PURE__ */ Object.create({}), { autostart: false });
     return o2.use(Ro, { hideFriends: n2.hideFriends, skipOnboarding: n2.skipOnboarding, betPack: n2.betPack, friendsTab: n2.friendsTab, theme: n2.theme, themeMode: n2.themeMode }), o2.use(To, { onDeepLinkHandled: n2 == null ? void 0 : n2.onDeepLinkHandled }), o2.use(No, { videoPlayerController: n2 == null ? void 0 : n2.videoPlayerController }), o2.use(Co, { onContentActivate: n2 == null ? void 0 : n2.onContentActivate, withAd: n2 == null ? void 0 : n2.withAd, withAdNotification: n2 == null ? void 0 : n2.withAdNotification }), o2.use(js, { sdkKey: t6, host: i2, analyticsHost: s2, version: n2 == null ? void 0 : n2.version, webOS: n2 == null ? void 0 : n2.webOS }), o2.use(Ks), o2.use(ko), o2.use(qo), o2.use(yo), o2.use(Ia), o2.use(Wo), o2.use(ha), o2.after((a2, u2, c2) => {
       if (a2) throw a2;
       u2.ready(), c2();
