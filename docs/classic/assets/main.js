@@ -52726,8 +52726,10 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
     t10.sdk.withAuth = true;
     const s = await t10.stores.organizationSettings.getValue();
     if (!s) throw new Error("unknown organization");
-    const r = `${(_a3 = s.pub) == null ? void 0 : _a3.kid}`, o = `${n}:${s.id}`, a = (_b2 = (await SZ(t10.transport, { userKey: r, schema: o, init: true })).meta) == null ? void 0 : _b2.token, c = s.pub, h = await nI({ ...c }), u = window.crypto.randomUUID(), d = await new RI({ "device-id": u, totp: a }).setProtectedHeader({ alg: c.alg || "", enc: "A256CBC-HS512", kid: c.kid }).setIssuedAt().setIssuer(i10).setAudience(s.id).setExpirationTime("2m").encrypt(h);
-    await t10.auth.login(o, d), cd.setSchema("streamlayer:streamlayer"), cd.setExternalToken(d);
+    const r = `${(_a3 = s.pub) == null ? void 0 : _a3.kid}`, o = `${n}:${s.id}`, a = (_b2 = (await SZ(t10.transport, { userKey: r, schema: o, init: true })).meta) == null ? void 0 : _b2.token, c = s.pub, h = await nI({ ...c }), u = crypto.getRandomValues(new Uint8Array(16));
+    u[6] = u[6] & 15 | 64, u[8] = u[8] & 63 | 128;
+    const d = Array.from(u, (g10) => g10.toString(16).padStart(2, "0")).join(""), m = `${d.slice(0, 8)}-${d.slice(8, 12)}-${d.slice(12, 16)}-${d.slice(16, 20)}-${d.slice(20)}`, p = await new RI({ "device-id": m, totp: a }).setProtectedHeader({ alg: c.alg || "", enc: "A256CBC-HS512", kid: c.kid }).setIssuedAt().setIssuer(i10).setAudience(s.id).setExpirationTime("2m").encrypt(h);
+    await t10.auth.login(o, p), cd.setSchema("streamlayer:streamlayer"), cd.setExternalToken(p);
   }, yI = async (t10, e = {}) => {
     try {
       await t10.auth.reLogin({ skipLogin: true }) || await hd(t10, e).catch((i10) => {
