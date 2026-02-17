@@ -39323,7 +39323,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       if (!o) return;
       const l = (_a3 = n.get().data) == null ? void 0 : _a3.find((c) => c.id === (o == null ? void 0 : o.questionId)), a = (_b2 = o == null ? void 0 : o.question) == null ? void 0 : _b2.openedFrom;
       return l ? (l.openedFrom = a, l) : o.question;
-    }), s = /* @__PURE__ */ Do(i10, (o) => o && o.type === "question" ? o.id : void 0), r = Cs(s, t10);
+    }), s = /* @__PURE__ */ Do(i10, (o) => o == null ? void 0 : o.id), r = Cs(s, t10);
     return { $store: i10, $extendedStore: r, updateExtendedQuestion: (o) => {
       const l = r.get().data, a = (c, h) => {
         if (!c || !h) return (c || h || []).sort((p, g10) => p.id > g10.id ? 1 : -1);
@@ -41361,7 +41361,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       return r ? { error: new Error(r), statusCode: s.status } : (async function(o) {
         const l = await o.text();
         let a;
-        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexByUNFvMk), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
+        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexNONlBKB), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
       })(s);
     } catch (n) {
       return { error: n, statusCode: n.name === "AbortError" ? 408 : null };
@@ -51752,11 +51752,11 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
     const { loading: s, data: r } = t10;
     return r ? /* @__PURE__ */ jsxRuntimeExports.jsx(iC, { webos: i10, vote: e, close: n, openedQuestion: r, isLoading: !!s }) : /* @__PURE__ */ jsxRuntimeExports.jsx(nC, {});
   }, qC = ({ gamification: t10, sdk: e, muted: n, skipAutoClose: i10, hideSponsor: s, className: r, hideHeader: o, webos: l }) => {
-    var _a3, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j, _k, _l2, _m2, _n2, _o2, _p2;
-    const a = He(t10.openedQuestion.$store), c = He(t10.openedQuestion.$extendedStore), [h, u] = reactExports.useState(false), d = He(e.options), m = ((_a3 = a == null ? void 0 : a.attributes) == null ? void 0 : _a3.type) === M.FACTOID, p = (_b2 = a == null ? void 0 : a.attributes) == null ? void 0 : _b2.backgroundImage, g10 = (_c2 = c.data) == null ? void 0 : _c2.backgroundImage, A10 = m ? p == null ? void 0 : p.landscapeUrl : g10 == null ? void 0 : g10.landscapeUrl, b = m ? p == null ? void 0 : p.portraitUrl : g10 == null ? void 0 : g10.portraitUrl, R = U2({ containerId: d.containerId, landscapeUrl: A10, portraitUrl: b });
+    var _a3, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j, _k, _l2, _m2, _n2, _o2, _p2, _q, _r2;
+    const a = He(t10.openedQuestion.$store), c = He(t10.openedQuestion.$extendedStore), [h, u] = reactExports.useState(false), d = He(e.options), m = ((_a3 = a == null ? void 0 : a.attributes) == null ? void 0 : _a3.type) === M.FACTOID, p = (_b2 = a == null ? void 0 : a.attributes) == null ? void 0 : _b2.backgroundImage, g10 = (_c2 = c.data) == null ? void 0 : _c2.backgroundImage, A10 = m ? (_d2 = p == null ? void 0 : p.landscapeUrl) != null ? _d2 : g10 == null ? void 0 : g10.landscapeUrl : g10 == null ? void 0 : g10.landscapeUrl, b = m ? (_e2 = p == null ? void 0 : p.portraitUrl) != null ? _e2 : g10 == null ? void 0 : g10.portraitUrl : g10 == null ? void 0 : g10.portraitUrl, R = U2({ containerId: d.containerId, landscapeUrl: A10, portraitUrl: b });
     if (!a) return null;
-    const S10 = a.type, E = ((_e2 = (_d2 = c.data) == null ? void 0 : _d2.options) == null ? void 0 : _e2.options.case) === "factoid" ? c.data.options.options.value.closeTimer : void 0;
-    return c.data && c.data.adUnit === Qe.STANDART && !h ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Pu, { className: r, children: [R, /* @__PURE__ */ jsxRuntimeExports.jsx(_C, { id: c.data.id, hasBanner: !!((_g2 = (_f2 = c.data.promotion) == null ? void 0 : _f2.banner) == null ? void 0 : _g2.imageUrl), setAdShowed: u, sponsorLogo: ((_i2 = (_h2 = c.data.promotion) == null ? void 0 : _h2.sponsor) == null ? void 0 : _i2.logo) || ((_j = c.data.sponsorship) == null ? void 0 : _j.logo) || "" })] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Pu, { className: r, children: [R, !o && /* @__PURE__ */ jsxRuntimeExports.jsx(WE, { closeTimer: i10 ? void 0 : E, close: t10.closeQuestion, type: ((_k = a.attributes) == null ? void 0 : _k.type) || M.UNSET, webos: l }), S10 === "question" && /* @__PURE__ */ jsxRuntimeExports.jsx($C, { webos: l, vote: t10.submitAnswer, close: t10.closeQuestion, extendedQuestion: c }), S10 !== "question" && /* @__PURE__ */ jsxRuntimeExports.jsx(jC, { muted: n, openedQuestion: a, webos: l }), !s && /* @__PURE__ */ jsxRuntimeExports.jsx(NE, { sponsorLogo: ((_n2 = (_m2 = (_l2 = c.data) == null ? void 0 : _l2.promotion) == null ? void 0 : _m2.sponsor) == null ? void 0 : _n2.logo) || ((_p2 = (_o2 = c.data) == null ? void 0 : _o2.sponsorship) == null ? void 0 : _p2.logo) })] });
+    const S10 = a.type, E = ((_g2 = (_f2 = c.data) == null ? void 0 : _f2.options) == null ? void 0 : _g2.options.case) === "factoid" ? c.data.options.options.value.closeTimer : void 0;
+    return c.data && c.data.adUnit === Qe.STANDART && !h ? /* @__PURE__ */ jsxRuntimeExports.jsxs(Pu, { className: r, children: [R, /* @__PURE__ */ jsxRuntimeExports.jsx(_C, { id: c.data.id, hasBanner: !!((_i2 = (_h2 = c.data.promotion) == null ? void 0 : _h2.banner) == null ? void 0 : _i2.imageUrl), setAdShowed: u, sponsorLogo: ((_k = (_j = c.data.promotion) == null ? void 0 : _j.sponsor) == null ? void 0 : _k.logo) || ((_l2 = c.data.sponsorship) == null ? void 0 : _l2.logo) || "" })] }) : /* @__PURE__ */ jsxRuntimeExports.jsxs(Pu, { className: r, children: [R, !o && /* @__PURE__ */ jsxRuntimeExports.jsx(WE, { closeTimer: i10 ? void 0 : E, close: t10.closeQuestion, type: ((_m2 = a.attributes) == null ? void 0 : _m2.type) || M.UNSET, webos: l }), S10 === "question" && /* @__PURE__ */ jsxRuntimeExports.jsx($C, { webos: l, vote: t10.submitAnswer, close: t10.closeQuestion, extendedQuestion: c }), S10 !== "question" && /* @__PURE__ */ jsxRuntimeExports.jsx(jC, { muted: n, openedQuestion: a, webos: l }), !s && /* @__PURE__ */ jsxRuntimeExports.jsx(NE, { sponsorLogo: ((_p2 = (_o2 = (_n2 = c.data) == null ? void 0 : _n2.promotion) == null ? void 0 : _o2.sponsor) == null ? void 0 : _p2.logo) || ((_r2 = (_q = c.data) == null ? void 0 : _q.sponsorship) == null ? void 0 : _r2.logo) })] });
   };
   function eW(t10) {
     return t10 instanceof DOMException && // everything except Firefox
@@ -56850,7 +56850,7 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
     __proto__: null,
     default: dr
   }, [or]);
-  const indexByUNFvMk = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  const indexNONlBKB = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     i: mr
   }, Symbol.toStringTag, { value: "Module" }));
