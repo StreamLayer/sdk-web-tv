@@ -41361,7 +41361,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       return r ? { error: new Error(r), statusCode: s.status } : (async function(o) {
         const l = await o.text();
         let a;
-        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexNONlBKB), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
+        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexBNuE9o3Z), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
       })(s);
     } catch (n) {
       return { error: n, statusCode: n.name === "AbortError" ? 408 : null };
@@ -41467,7 +41467,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
     i10.onload = () => e(t10), i10.onerror = () => n(), i10.src = t10;
   }), mb = (t10) => (e, n, i10) => t10.transport.nanoquery.createFetcherStore([e, n], { dedupeTime: i10.prefetch ? i10.refetchInterval : 1 / 0, revalidateInterval: i10.refetchInterval > 0 ? i10.refetchInterval : 0, fetcher: async (s) => {
     var _a3, _b2, _c2, _d2, _e2, _f2, _g2, _h2, _i2, _j;
-    if (!s || typeof s != "string") throw new Error("no_valid_ad");
+    if (!s || typeof s != "string") throw new Error("ad url is empty");
     Ae.emit("exposedPauseAd", { action: "load", payload: {} });
     try {
       const r = (await db.get(s)).ads.find((o) => o.creatives.length > 0);
@@ -41491,7 +41491,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       }
       throw new Error("no_valid_ad");
     } catch (r) {
-      throw console.error(r, "err"), new Error("no_valid_ad");
+      throw r.message !== "no_valid_ad" && r.message !== "ad url is empty" && console.error(r), r;
     }
   } });
   class pb extends Y0 {
@@ -51537,7 +51537,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       s.controlVideoPlayer({ play: true });
     }, [s]);
     return reactExports.useEffect(() => {
-      v === b.current && F3.error && (console.log("error", F3.error), clearTimeout(g10.current), k == null ? void 0 : k());
+      v === b.current && F3.error && (clearTimeout(g10.current), k == null ? void 0 : k());
     }, [F3, k, v]), reactExports.useEffect(() => {
       if (t10 && A10) {
         R.current = b.current, S10.current = "";
@@ -52971,7 +52971,7 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
       if (sdk) {
         return sdk.streamSummary().subscribe((value) => {
           var _a3, _b2;
-          if (((_a3 = value.data) == null ? void 0 : _a3.summary) && value.data.summary.stream && ((_b2 = value.data.summary.pauseAdUrl) == null ? void 0 : _b2[0])) {
+          if (((_a3 = value.data) == null ? void 0 : _a3.summary) && (value.data.summary.stream || ((_b2 = value.data.summary.pauseAdUrl) == null ? void 0 : _b2[0]))) {
             setChannel({
               id: value.data.summary.id,
               name: value.data.summary.name,
@@ -56850,7 +56850,7 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
     __proto__: null,
     default: dr
   }, [or]);
-  const indexNONlBKB = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  const indexBNuE9o3Z = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     i: mr
   }, Symbol.toStringTag, { value: "Module" }));
