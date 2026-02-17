@@ -41361,7 +41361,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       return r ? { error: new Error(r), statusCode: s.status } : (async function(o) {
         const l = await o.text();
         let a;
-        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexBNuE9o3Z), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
+        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => index39v8Ye7I), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
       })(s);
     } catch (n) {
       return { error: n, statusCode: n.name === "AbortError" ? 408 : null };
@@ -41888,7 +41888,9 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
             }, 200), s === "enabled" && (this.writeCommon("overlaySessionId", zn()), this.writeCommon("category", Le.EXPOSED_PAUSED_AD))), ((_c2 = i10.slEventBus) == null ? void 0 : _c2.type) === "advertisement" && (s === "opened" && this.writeCommon("overlaySessionId", zn()), s === "closed" && this.writeCommon("overlaySessionId", ""));
           };
           return Ae.listen(n);
-        }), this.onConnect(() => {
+        }), this.onConnect(() => e.sdk.uiState.subscribe((n) => {
+          Object.values(n).every((i10) => i10 === false) && this.writeCommon("overlaySessionId", "");
+        })), this.onConnect(() => {
           const n = window.matchMedia("(orientation: portrait)"), i10 = (s) => {
             this.writeCommon("screenOrientation", s.matches ? Ac.PORTRAIT : Ac.LANDSCAPE);
           };
@@ -56850,7 +56852,7 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
     __proto__: null,
     default: dr
   }, [or]);
-  const indexBNuE9o3Z = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  const index39v8Ye7I = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     i: mr
   }, Symbol.toStringTag, { value: "Module" }));
