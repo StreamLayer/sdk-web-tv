@@ -39659,7 +39659,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
             const l = new Map(this.notificationsList.get());
             l.delete(e), this.notificationsList.set(l);
             const a = this.timeouts.get(e);
-            a !== void 0 && (clearTimeout(a), this.timeouts.delete(e)), this.logger.debug({ notificationId: e }, "notification hidden"), s.hiding && Ve.emit("notification", { action: "closed", payload: { type: s.type, questionId: s.data.questionId, questionType: s.data.questionType } });
+            a !== void 0 && (clearTimeout(a), this.timeouts.delete(e)), this.logger.debug({ notificationId: e }, "notification hidden"), Ve.emit("notification", { action: "closed", payload: { type: s.type, questionId: s.data.questionId, questionType: s.data.questionType } });
           };
           if (r) {
             const l = setTimeout(o, this.options.animationDelay || 0);
@@ -41368,7 +41368,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       return r ? { error: new Error(r), statusCode: s.status } : (async function(o) {
         const l = await o.text();
         let a;
-        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexCGamyxty), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
+        return a = Sn.isBrowserEnvironment() ? new DOMParser() : new (await __vitePreload(() => Promise.resolve().then(() => indexVORSmPa7), false ? __VITE_PRELOAD__ : void 0, _documentCurrentScript && _documentCurrentScript.tagName.toUpperCase() === "SCRIPT" && _documentCurrentScript.src || new URL("assets/main.js", document.baseURI).href).then((c) => c.i)).DOMParser(), { xml: a.parseFromString(l, "text/xml"), details: { byteLength: l.length, statusCode: o.status, rawXml: l } };
       })(s);
     } catch (n) {
       return { error: n, statusCode: n.name === "AbortError" ? 408 : null };
@@ -50581,11 +50581,11 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
   const fe = new eA(), tA = /* @__PURE__ */ V("div")({ name: "Container", class: "c5b6wdg", propsAsIs: false }), nA = "a1rlj479", iA = "s35f1di", sA = "sj4471g", rA = "b12050d8", oA = "b1d5ybek", lA = (t10) => t10 === "left" || t10 === "right" ? iA : rA, aA = (t10) => t10 === "left" || t10 === "right" ? sA : oA, cA = (t10) => t10 === "left" ? "avdxyl3" : t10 === "right" ? "a1bisd08" : t10 === "top" ? "a1u9y2aj" : "a1qqaks", pa = ({ children: t10, style: e, className: n, enabled: i10 = true, hiding: s, direction: r = "left", onAnimationEnd: o }) => /* @__PURE__ */ jsxRuntimeExports.jsx(tA, { style: e, className: Oe(n, nA, cA(r), i10 && !s && lA(r), i10 && s && aA(r)), onAnimationEnd: o, children: t10 }), uA = /* @__PURE__ */ V("a")({ name: "Link", class: "l1sgte8c", propsAsIs: false }), hA = /* @__PURE__ */ V("div")({ name: "BannerContainer", class: "b7yfc72", propsAsIs: false }), dA = () => uA, mA = /* @__PURE__ */ V(dA())({ name: "BannerLink", class: "bejjq94", propsAsIs: true }), X2 = ({ promotion: t10, promotionId: e, hiding: n, isEventFired: i10, fireEvent: s, direction: r = "bottom" }) => {
     const o = (t10 == null ? void 0 : t10.adUnit) === ze.STANDART, l = o ? t10.banner : t10.additionalBanner;
     if (reactExports.useEffect(() => {
-      (l == null ? void 0 : l.imageUrl) && t10.type && e && ((i10 == null ? void 0 : i10("banner-showed")) || (fe.emit("advertisement", { action: "bannerShown", payload: { id: e, type: t10.type } }), s == null ? void 0 : s("banner-showed")));
+      (l == null ? void 0 : l.imageUrl) && e && ((i10 == null ? void 0 : i10("banner-showed")) || (fe.emit("advertisement", { action: "bannerShown", payload: { id: e, type: t10.type } }), s == null ? void 0 : s("banner-showed")));
     }, [l == null ? void 0 : l.imageUrl, s, i10, t10.type, e]), !(l == null ? void 0 : l.imageUrl)) return null;
     let a = l == null ? void 0 : l.url;
     return a && a.indexOf("http") !== 0 && (a = `https://${a}`), /* @__PURE__ */ jsxRuntimeExports.jsx(pa, { direction: r, hiding: n, children: /* @__PURE__ */ jsxRuntimeExports.jsx(hA, { className: "BannerContainer", "data-is-ad": o, children: /* @__PURE__ */ jsxRuntimeExports.jsx(mA, { as: a ? "a" : "span", className: "BannerLink", href: a, style: { backgroundImage: `url(${l.imageUrl})`, cursor: a ? "pointer" : "default" }, "data-promo-id": e, "data-promo-type": t10.type, "data-a": "banner", target: "_blank", "data-is-ad": o }) }) });
-  }, pA = ({ cardId: t10, promotion: e, direction: n = "bottom" }) => /* @__PURE__ */ jsxRuntimeExports.jsx(X2, { promotion: e, promotionId: t10, direction: n, hiding: false }), gA = (t10, e) => {
+  }, pA = ({ isEventFired: t10, fireEvent: e, cardId: n, promotion: i10, direction: s = "bottom" }) => /* @__PURE__ */ jsxRuntimeExports.jsx(X2, { isEventFired: t10, fireEvent: e, promotion: i10, promotionId: n, direction: s, hiding: false }), gA = (t10, e) => {
     const n = window.innerWidth < n5.xl;
     reactExports.useEffect(() => {
       const i10 = n && e.useDomNode ? document : t10.current, s = (r) => {
@@ -51503,7 +51503,7 @@ var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "sy
       m && ((_a4 = u.close) == null ? void 0 : _a4.call(u));
     }, [m]);
     const p = ((_c2 = (_b2 = (_a3 = u.data) == null ? void 0 : _a3.question) == null ? void 0 : _b2.backgroundImage) == null ? void 0 : _c2.landscapeUrl) || ((_e2 = (_d2 = u.data) == null ? void 0 : _d2.promotion) == null ? void 0 : _e2.backgroundImageLandscapeUrl), g10 = ((_h2 = (_g2 = (_f2 = u.data) == null ? void 0 : _f2.question) == null ? void 0 : _g2.backgroundImage) == null ? void 0 : _h2.portraitUrl) || ((_j = (_i2 = u.data) == null ? void 0 : _i2.promotion) == null ? void 0 : _j.backgroundImagePortraitUrl), A10 = U2({ containerId: n, landscapeUrl: p, portraitUrl: g10 }), b = ((_l2 = (_k = d == null ? void 0 : d.data) == null ? void 0 : _k.appearance) == null ? void 0 : _l2.position) === r9.LBAR;
-    return o && u.data === void 0 && ((_m2 = h == null ? void 0 : h.attributes) == null ? void 0 : _m2.adUnit) === ze.STANDART && b && ((_p2 = (_o2 = (_n2 = h == null ? void 0 : h.attributes) == null ? void 0 : _n2.adPromotion) == null ? void 0 : _o2.banner) == null ? void 0 : _p2.imageUrl) ? /* @__PURE__ */ jsxRuntimeExports.jsx(kh, { ref: c, className: Oe("SL-AdvertisementWebOs", "SL-AdvertisementWebOs--banner"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(pA, { cardId: h.id, promotion: { ...h.attributes.adPromotion, adUnit: h.attributes.adUnit }, direction: o }) }) : u.data === void 0 || !l && u.isViewed ? null : /* @__PURE__ */ jsxRuntimeExports.jsxs(kh, { ref: c, style: { height: r ? "100%" : o ? void 0 : "auto" }, className: Oe("SL-AdvertisementWebOs", !r && !o && !s && "SL-AdvertisementWebOs--overlay", r && "SL-AdvertisementWebOs--sidebar", o && "SL-AdvertisementWebOs--banner", s && "SL-AdvertisementWebOs--notification"), children: [!s && A10, /* @__PURE__ */ jsxRuntimeExports.jsx(x7, { sidebar: r, banner: o, advertisement: u.data, advertisementPaused: !!u.isPaused, togglePause: u.togglePause || (() => {
+    return o && u.data === void 0 && ((_m2 = h == null ? void 0 : h.attributes) == null ? void 0 : _m2.adUnit) === ze.STANDART && b && ((_p2 = (_o2 = (_n2 = h == null ? void 0 : h.attributes) == null ? void 0 : _n2.adPromotion) == null ? void 0 : _o2.banner) == null ? void 0 : _p2.imageUrl) ? /* @__PURE__ */ jsxRuntimeExports.jsx(kh, { ref: c, className: Oe("SL-AdvertisementWebOs", "SL-AdvertisementWebOs--banner"), children: /* @__PURE__ */ jsxRuntimeExports.jsx(pA, { cardId: h.id, isEventFired: h.isEventFired, fireEvent: h.fireEvent, promotion: { ...h.attributes.adPromotion, adUnit: h.attributes.adUnit }, direction: o }) }) : u.data === void 0 || !l && u.isViewed ? null : /* @__PURE__ */ jsxRuntimeExports.jsxs(kh, { ref: c, style: { height: r ? "100%" : o ? void 0 : "auto" }, className: Oe("SL-AdvertisementWebOs", !r && !o && !s && "SL-AdvertisementWebOs--overlay", r && "SL-AdvertisementWebOs--sidebar", o && "SL-AdvertisementWebOs--banner", s && "SL-AdvertisementWebOs--notification"), children: [!s && A10, /* @__PURE__ */ jsxRuntimeExports.jsx(x7, { sidebar: r, banner: o, advertisement: u.data, advertisementPaused: !!u.isPaused, togglePause: u.togglePause || (() => {
     }), toggleMute: u.toggleMute || (() => {
     }), close: u.close, isEventFired: u.isEventFired, fireEvent: u.fireEvent, markAsViewed: t10.advertisement.markAsViewed, open: t10.advertisement.open, isNotification: s, skipAutoClose: e, controlVideo: a, muted: i10 })] });
   }), qn = ({ sdk: t10, sidebar: e, muted: n, banner: i10, skipAutoClose: s, persistent: r, notification: o }) => {
@@ -56885,7 +56885,7 @@ Please stay tuned for the next question.` : a === M.PREDICTION ? "Stay tuned to 
     __proto__: null,
     default: dr
   }, [or]);
-  const indexCGamyxty = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  const indexVORSmPa7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
     __proto__: null,
     i: mr
   }, Symbol.toStringTag, { value: "Module" }));
