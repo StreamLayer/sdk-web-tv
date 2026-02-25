@@ -55028,9 +55028,9 @@ var VideoView = function VideoView(_ref) {
 
 
 var searchParams = new URLSearchParams(window.location.search);
-var PRODUCTION = searchParams.get('production') === null ? window.SL_PRODUCTION !== undefined && window.SL_PRODUCTION === 'true' || process.env.VITE_PRODUCTION === 'true' : searchParams.get('production') === 'true';
-var SDK_KEY = searchParams.get('sdk_key') || window.SL_SDK_KEY || process.env.VITE_SDK_KEY || '';
-var EVENT_ID = searchParams.get('event_id') || window.SL_EVENT_ID || process.env.VITE_EVENT_ID || '';
+var PRODUCTION = searchParams.get('production') === null ? window.SL_PRODUCTION !== undefined && window.SL_PRODUCTION === 'true' || "true" === 'true' : searchParams.get('production') === 'true';
+var SDK_KEY = searchParams.get('sdk_key') || window.SL_SDK_KEY || "679acc583ca0ad3ae5114a9a50a1646179cdc11f93c210277b30b8e3a807e92d" || 0;
+var EVENT_ID = searchParams.get('event_id') || window.SL_EVENT_ID || "1618000" || 0;
 var channels = window.SL_CHANNELS || [{
   id: '1',
   name: 'Big Buck Bunny',
