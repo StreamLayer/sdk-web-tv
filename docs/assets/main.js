@@ -71,6 +71,33 @@ Error generating stack: `+T.message+`
     animation: fade-sl-bg-in 0.3s linear forwards;
   }
 
+  #${n||"SlLayoutContainer"} .PromoOverlayContainer {
+    position: relative;
+  }
+
+  #${n||"SlLayoutContainer"} .PromoOverlayContainer::before {
+    content: '';
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1a1a1a;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-image: ${e} !important;
+    z-index: 0;
+
+    opacity: 0;
+    animation: fade-sl-bg-in 0.3s linear forwards;
+  }
+
+  #${n||"SlLayoutContainer"} .PromoOverlayContainer > div {
+    position: relative;
+    z-index: 1;
+  }
+
   #${n||"SlLayoutContainer"} > div {
     position: relative;
     z-index: 1;
