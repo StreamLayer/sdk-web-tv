@@ -54747,6 +54747,7 @@ var VideoView = function VideoView(_ref) {
     if (sdk) {
       return sdk.streamSummary().subscribe(function (value) {
         var _value$data, _value$data$summary$p;
+        console.log('value', value);
         if ((_value$data = value.data) !== null && _value$data !== void 0 && _value$data.summary && (value.data.summary.stream || (_value$data$summary$p = value.data.summary.pauseAdUrl) !== null && _value$data$summary$p !== void 0 && _value$data$summary$p[0])) {
           setChannel({
             id: value.data.summary.id,
