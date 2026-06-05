@@ -54873,6 +54873,29 @@ var VideoView = function VideoView(_ref) {
     };
   }, [handleMediaPlay, handleMediaPause]);
 
+  // Load the media source. HLS streams are played via hls.js when stream
+  // support was compiled in (VITE_SUPPORT_STREAM=true); otherwise we fall back
+  // to the browser's native playback. When the flag is off the hls.js import
+  // below is dead-code eliminated and never bundled.
+  (0,react.useEffect)(function () {
+    var video = videoPlayerRef.current;
+    var src = channel.videoStreamUrl;
+    if (!video || !src) return;
+    var isHls = src.includes('.m3u8');
+    var canPlayNativeHls = video.canPlayType('application/vnd.apple.mpegurl') !== '';
+
+    // Non-HLS sources, or platforms with native HLS (Safari/iOS), play directly.
+    if (!isHls || canPlayNativeHls) {
+      video.src = src;
+      return;
+    }
+    if (false) // removed by dead control flow
+{ var hls, destroyed; }
+
+    // Stream support disabled at build time — best-effort native playback.
+    video.src = src;
+  }, [channel.videoStreamUrl]);
+
   // Track video playing state
   var onVideoPlayWithState = (0,react.useCallback)(function () {
     setShowPauseAd(false);
@@ -54921,7 +54944,6 @@ var VideoView = function VideoView(_ref) {
     }
   }, /*#__PURE__*/react.createElement(Video, {
     ref: videoPlayerRef,
-    src: channel.videoStreamUrl,
     onPlay: onVideoPlayWithState,
     onPause: onVideoPauseWithState,
     style: {
