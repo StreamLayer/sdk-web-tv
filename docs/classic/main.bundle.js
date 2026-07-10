@@ -134262,7 +134262,7 @@ var VideoView = function VideoView() {
     "aria-label": "Play/Pause",
     onClick: handleSelect,
     className: "material-symbols-outlined"
-  }, isPlaying ? 'pause_circle' : 'play_circle'), pauseAdRendered && channel.name && /*#__PURE__*/react.createElement(PauseAdTopLeft, null, /*#__PURE__*/react.createElement(PauseAdCaption, null, "LIVE CHANNEL"), /*#__PURE__*/react.createElement(PauseAdTitle, null, channel.name))))), /*#__PURE__*/react.createElement(ExternalAdDemoPanel, {
+  }, isPlaying ? 'pause' : 'play_arrow'), pauseAdRendered && channel.name && /*#__PURE__*/react.createElement(PauseAdTopLeft, null, /*#__PURE__*/react.createElement(PauseAdCaption, null, "LIVE CHANNEL"), /*#__PURE__*/react.createElement(PauseAdTitle, null, channel.name))))), /*#__PURE__*/react.createElement(ExternalAdDemoPanel, {
     onChange: setExternalAdData
   }));
 };
