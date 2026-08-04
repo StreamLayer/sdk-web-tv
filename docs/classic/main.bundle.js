@@ -133616,19 +133616,33 @@ var cjs_browser = __webpack_require__(68176);
 ;// ./src/ExternalAdDemoPanel.tsx
 function ExternalAdDemoPanel_slicedToArray(r, e) { return ExternalAdDemoPanel_arrayWithHoles(r) || ExternalAdDemoPanel_iterableToArrayLimit(r, e) || ExternalAdDemoPanel_unsupportedIterableToArray(r, e) || ExternalAdDemoPanel_nonIterableRest(); }
 function ExternalAdDemoPanel_nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-function ExternalAdDemoPanel_unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return ExternalAdDemoPanel_arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? ExternalAdDemoPanel_arrayLikeToArray(r, a) : void 0; } }
-function ExternalAdDemoPanel_arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 function ExternalAdDemoPanel_iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
 function ExternalAdDemoPanel_arrayWithHoles(r) { if (Array.isArray(r)) return r; }
+function ExternalAdDemoPanel_toConsumableArray(r) { return ExternalAdDemoPanel_arrayWithoutHoles(r) || ExternalAdDemoPanel_iterableToArray(r) || ExternalAdDemoPanel_unsupportedIterableToArray(r) || ExternalAdDemoPanel_nonIterableSpread(); }
+function ExternalAdDemoPanel_nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function ExternalAdDemoPanel_unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return ExternalAdDemoPanel_arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? ExternalAdDemoPanel_arrayLikeToArray(r, a) : void 0; } }
+function ExternalAdDemoPanel_iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function ExternalAdDemoPanel_arrayWithoutHoles(r) { if (Array.isArray(r)) return ExternalAdDemoPanel_arrayLikeToArray(r); }
+function ExternalAdDemoPanel_arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
 
 
 var UI_TYPES = ['side-by-side', 'sidebar', 'l-bar'];
 var VAST_TEST_LINK = 'https://cdn-test.streamlayer.io/vast/ads_l-bar.xml';
 
-// Predefined VAST tags for quick testing — pick one from the list or type a custom URL.
-var PRESET_VAST_URLS = ['https://ctv.teads.tv/third-party-creatives/streamlayer/streamlayer-test-3.xml', 'https://a.teads.tv/ctv-in-content-sdk/265238?appId=20006184&appStoreUrl=https%3A%2F%2Fwww.zeasn.com%2Fwhaleeco%2Fappstore%2Fdetail%3Fappid%3D20006184&ip=82.65.2.53&userAgent=Mozilla%2F5.0%20(Linux%20armv7l)%20AppleWebKit%2F537.36%20(KHTML%2C%20like%20Gecko)%20Chrome%2F49.0.2623.112%20Safari%2F537.36%20OPR%2F36.0.2128.0%20OMI%2F4.8.0.129.Driver3.34%2C%20HbbTV%2F1.1.1%20_TV_MT5800%2F048.003.098.001%20(Philips%2C%20PFG5813%2C%20wireless)%20%20CE-HTML%2F1.0%20NETTV%2F4.6.0.1%20SignOn%2F2.0%20SmartTvA%2F5.0.0%20en&playerHeight=1080&playerWidth=1920&minDuration=0&maxDuration=60&placementType=1', VAST_TEST_LINK];
+// Client-supplied VAST tags, injected at build time as a comma-separated list so they ship
+// only with that client's demo instead of living in the repo — see
+// `.semaphore/promotions/sdk-web-demo-teads.yml`.
+// Annotated because this app's tsconfig has no @types/node, so `process.env` is untyped.
+var VAST_PRESETS_ENV =  false || '';
+var INJECTED_VAST_URLS = VAST_PRESETS_ENV.split(',').map(function (url) {
+  return url.trim();
+}).filter(Boolean);
 
-// Google IMA sample linear VAST tag — works out of the box for testing.
+// Predefined VAST tags for quick testing — pick one from the list or type a custom URL.
+var PRESET_VAST_URLS = [].concat(ExternalAdDemoPanel_toConsumableArray(INJECTED_VAST_URLS), [VAST_TEST_LINK]);
+
+// Injected tags come first, so a client demo defaults to the client's own tag and every
+// other build defaults to the StreamLayer test tag.
 var DEFAULT_VAST_URL = PRESET_VAST_URLS[0];
 
 /**
