@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  SC-322 test creative: a linear MP4 VAST that exercises the full-bleed video
+  pause ad. Served same-origin from the demo dev server (public/) so VASTClient
+  can fetch it without CORS. Referenced by the "Full-Bleed VAST Video (SC-322)"
+  channel in src/app/channels.ts via `${window.location.origin}/fullbleed-vast.xml`.
+
+  The MediaFile points at a StreamLayer static-CDN creative. width/height/bitrate
+  are the VAST-declared attributes the selector reads (kept inside the 5000-40000
+  kbps window so selectMp4MediaFile picks it); the actual file plays at its native
+  resolution regardless.
+-->
+<VAST version="4.0">
+  <Ad id="fullbleed-vast">
+    <InLine>
+      <AdSystem version="4.0">StreamLayer Debug</AdSystem>
+      <AdTitle>Full-Bleed Video Pause Ad</AdTitle>
+      <Description>StreamLayer full-bleed test creative</Description>
+      <Advertiser>Demo Sponsor</Advertiser>
+      <Impression><![CDATA[https://example.com/imp]]></Impression>
+      <Creatives>
+        <Creative id="1">
+          <Linear>
+            <Duration>00:00:10</Duration>
+            <MediaFiles>
+              <MediaFile delivery="progressive" type="video/mp4" width="1920" height="1080" bitrate="8000"><![CDATA[https://static-next.streamlayer.io/b22124a1592d5f34aa49f14403966043/fab5768c-81be-44ff-bdc0-5e3f5d668c77/97942e21-8f24-4457-a9ec-377e909dad8f_remuxed.mp4]]></MediaFile>
+            </MediaFiles>
+            <VideoClicks>
+              <ClickThrough><![CDATA[https://streamlayer.io]]></ClickThrough>
+            </VideoClicks>
+          </Linear>
+        </Creative>
+      </Creatives>
+    </InLine>
+  </Ad>
+</VAST>
