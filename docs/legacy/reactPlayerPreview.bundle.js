@@ -1,6 +1,6 @@
 (self["webpackChunk_streamlayer_web_os_demo_app"] = self["webpackChunk_streamlayer_web_os_demo_app"] || []).push([[353],{
 
-/***/ 33735:
+/***/ 52400:
 /***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
 function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
@@ -94,7 +94,7 @@ __export(Preview_exports, {
   }
 });
 module.exports = __toCommonJS(Preview_exports);
-var import_react = __toESM(__webpack_require__(51172));
+var import_react = __toESM(__webpack_require__(73581));
 var ICON_SIZE = "64px";
 var cache = {};
 var Preview = /*#__PURE__*/function (_import_react$Compone) {
