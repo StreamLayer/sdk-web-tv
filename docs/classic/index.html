@@ -1,1 +1,7 @@
-<!doctype html><html lang="en"><head><meta charset="UTF-8"/><link rel="icon" type="image/png" sizes="100x100" href="./favicon.png"/><link rel="apple-touch-icon" href="./favicon@5.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><script src="https://imasdk.googleapis.com/pal/sdkloader/pal.js"></script><title>StreamLayer SDK Demo App</title><script defer="defer" src="main.bundle.js"></script></head><body><div id="root"></div></body></html>
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><link rel="icon" type="image/png" sizes="100x100" href="./favicon.png"/><link rel="apple-touch-icon" href="./favicon@5.png"/><meta name="viewport" content="width=device-width,initial-scale=1"/><script src="https://imasdk.googleapis.com/pal/sdkloader/pal.js"></script><title>StreamLayer SDK Demo App</title><script>// Arm the SDK's log-event publishing BEFORE the bundle loads — the logger
+      // decides at module init whether it runs at all. `apads` is the Amagi
+      // pause-ads narrative, `ssaiq` the SSAI one; `?log_events=` re-points it
+      // on a deployed build (`?log_events=*` for every SDK logger).
+      window.SL_LOG_EVENTS = (/[?&]log_events=([^&]*)/.exec(window.location.search) || [])[1]
+        ? decodeURIComponent(RegExp.$1)
+        : 'apads,ssaiq'</script><script defer="defer" src="main.bundle.js"></script></head><body><div id="root"></div></body></html>
